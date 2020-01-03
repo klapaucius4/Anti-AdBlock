@@ -144,9 +144,18 @@ class Anti_AdBlock_Admin {
 
 		add_settings_section(
 			$this->option_name . '_general',
-			__( 'General', 'anti-adblock' ),
+			__( 'General settings', 'anti-adblock' ),
 			array( $this, $this->option_name . '_general_cb' ),
 			$this->plugin_name
+		);
+
+		add_settings_field(
+			$this->option_name . '_enabled',
+			__( 'Plugin enabled', 'anti-adblock' ),
+			array( $this, $this->option_name . '_enabled_cb' ),
+			$this->plugin_name,
+			$this->option_name . '_general',
+			array( 'label_for' => $this->option_name . '_enabled' )
 		);
 
 		add_settings_field(
@@ -178,6 +187,19 @@ class Anti_AdBlock_Admin {
 	 */
 	public function anti_adblock_general_cb() {
 		echo '<p>' . __( 'Please change the settings accordingly.', 'anti-adblock' ) . '</p>';
+	}
+
+
+	public function anti_adblock_enabled_cb() {
+		$enabled = get_option( $this->option_name . '_enabled' );
+		?>
+			<fieldset>
+				<label>
+					<input type="checkbox" name="<?php echo $this->option_name . '_enabled' ?>" id="<?php echo $this->option_name . '_enabled' ?>" value="1" <?php checked( $enabled, 1 ); ?>>
+					<?php _e( 'Plugin enabled', 'anti-adblock' ); ?>
+				</label>
+			</fieldset>
+		<?php
 	}
 
 	/**
