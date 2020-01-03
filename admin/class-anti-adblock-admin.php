@@ -117,8 +117,8 @@ class Anti_AdBlock_Admin {
 	public function add_options_page() {
 
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Outdated Notice Settings', 'anti-adblock' ),
-			__( 'Outdated Notice', 'anti-adblock' ),
+			__( 'Anti AdBlock Settings', 'anti-adblock' ),
+			__( 'Anti AdBlock', 'anti-adblock' ),
 			'manage_options',
 			$this->plugin_name,
 			array( $this, 'display_options_page' )

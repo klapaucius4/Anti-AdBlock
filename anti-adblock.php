@@ -13,7 +13,7 @@
  * @package           Anti_AdBlock
  *
  * @wordpress-plugin
- * Plugin Name:       Outdated Notice
+ * Plugin Name:       Anti AdBlock
  * Plugin URI:        http://wordpress.org/plugins/anti-adblock
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
