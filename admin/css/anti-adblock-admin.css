@@ -2,3 +2,21 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+ @import url("flexboxgrid.min.css");
+
+#anti-adblock-admin-container {
+    /* background-color: #dddddd; */
+    background-image: url('../img/bg.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+
+    min-height: 50vh;;
+}
+
+@media screen and (max-width: 782px) {
+    #anti-adblock-admin-container {
+        background: none;
+    }
+}
