@@ -176,6 +176,7 @@ class Anti_AdBlock_Admin {
 			array( 'label_for' => $this->option_name . '_day' )
 		);
 
+		register_setting( $this->plugin_name, $this->option_name . '_enabled', 'boolean' );
 		register_setting( $this->plugin_name, $this->option_name . '_position', array( $this, $this->option_name . '_sanitize_position' ) );
 		register_setting( $this->plugin_name, $this->option_name . '_day', 'intval' );
 	}
