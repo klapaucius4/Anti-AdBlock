@@ -3,7 +3,7 @@
  * included in this file.
  */
 
-.anti-adblock {
+/* .anti-adblock {
     border: 1px solid transparent;
     border-radius: 4px;
     margin-bottom: 20px;
@@ -20,4 +20,8 @@
     background-color: #f2dede;
     border-color: #ebccd1;
     color: #a94442;
+} */
+
+#anti-adblock {
+    
 }
