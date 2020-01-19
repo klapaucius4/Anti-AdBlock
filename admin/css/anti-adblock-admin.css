@@ -7,7 +7,7 @@
 
 #anti-adblock-admin-container {
     /* background-color: #dddddd; */
-    background-image: url('../img/bg.png');
+    background-image: url('../../public/img/bg.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
