@@ -106,7 +106,7 @@ class Anti_AdBlock_Public {
 		// var_dump('test'); exit;
 		$post_content = '';
 		$post_content .= '<div id="anti-adblock">';
-		$post_content = '<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>';
+		$post_content .= '<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>';
 		$post_content .= '</div>';
 
 		// if ( is_main_query() && is_singular('post') ) {
