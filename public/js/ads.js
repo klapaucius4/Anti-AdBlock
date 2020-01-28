@@ -1,3 +1,5 @@
+// https://jonathanmh.com/how-to-detect-ad-blockers-adblock-ublock-etc/
+
 document.addEventListener('DOMContentLoaded', init, false);
 
 function init(){
