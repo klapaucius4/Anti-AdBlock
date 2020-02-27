@@ -106,6 +106,7 @@ class Anti_AdBlock_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/anti-adblock-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name.'_ads', plugin_dir_url( __FILE__ ) . 'js/ads.js', array(), $this->version, false );
 
 	}
 
