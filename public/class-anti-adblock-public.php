@@ -73,7 +73,7 @@ class Anti_AdBlock_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/anti-adblock-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/adbp.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,19 +96,12 @@ class Anti_AdBlock_Public {
 		 * class.
 		 */
 
-		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/anti-adblock-public.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/anti-adblock-public.js', array(), $this->version, false );
 
 	}
 
 	public function plugin_footer() {
-
-		$pluginContent = '';
-		$pluginContent .= '<div id="anti-adblock">';
-		$pluginContent .= '<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>';
-		$pluginContent .= '</div>';
-
-        return $pluginContent;
+		require_once plugin_dir_path( __FILE__ ) . 'partials/anti-adblock-public-display.php';
 	}
 
 }

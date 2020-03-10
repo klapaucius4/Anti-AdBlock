@@ -133,7 +133,7 @@ class Anti_AdBlock_Admin {
 	 * @since  1.0.0
 	 */
 	public function display_options_page() {
-		include_once 'partials/anti-adblock-admin-display.php';
+		require_once plugin_dir_path( __FILE__ ) . 'partials/anti-adblock-admin-display.php';
 	}
 
 	/**
