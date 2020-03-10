@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-md-10">
                             <p><?= __('You have enabled AdBlock extension in your browser.') ?></p>
-                            <p><?= __('To well plugin operation you have to disable all ad blocking extensions for your WordPress Admin') ?></p>
+                            <p><?= __('To well plugin operation you have to disable all ad blocking extensions for your entire Wordpress website (also WordPress Admin).') ?></p>
                         </div>
                     </div>
                 </div>
