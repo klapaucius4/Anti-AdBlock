@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       http://fsylum.net
+ * @link       https://michalkowalik.pl
  * @since      1.0.0
  *
  * @package    Anti_AdBlock
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Anti_AdBlock
  * @subpackage Anti_AdBlock/includes
- * @author     Firdaus Zahari <firdaus@fsylum.net>
+ * @author     Michał Kowalik <kontakt@michalkowalik.pl>
  */
 class Anti_AdBlock {
 
@@ -57,6 +57,9 @@ class Anti_AdBlock {
 	 */
 	protected $version;
 
+
+	protected $basename;
+
 	/**
 	 * Define the core functionality of the plugin.
 	 *
@@ -70,6 +73,7 @@ class Anti_AdBlock {
 
 		$this->plugin_name = 'anti-adblock';
 		$this->version = '1.0.0';
+		$this->basename = dirname( dirname( plugin_basename( __FILE__ ) ) );
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -156,6 +160,7 @@ class Anti_AdBlock {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
+		$this->loader->add_action( 'plugin_action_links_' . $this->basename . '/' . $this->plugin_name . '.php', $plugin_admin, 'admin_plugin_settings_link' );
 
 	}
 

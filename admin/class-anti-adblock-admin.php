@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       http://fsylum.net
+ * @link       https://michalkowalik.pl
  * @since      1.0.0
  *
  * @package    Anti_AdBlock
@@ -18,7 +18,7 @@
  *
  * @package    Anti_AdBlock
  * @subpackage Anti_AdBlock/admin
- * @author     Firdaus Zahari <firdaus@fsylum.net>
+ * @author     Michał Kowalik <kontakt@michalkowalik.pl>
  */
 class Anti_AdBlock_Admin {
 
@@ -126,6 +126,16 @@ class Anti_AdBlock_Admin {
 		);
 
 	}
+
+
+	public function admin_plugin_settings_link( $links ) {
+		$settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/options-general.php?page=anti-adblock">'.__('Settings', 'anti-adblock').'</a>';
+		array_unshift( $links, $settings_link ); 
+		return $links; 
+	}
+
+	
+	  
 
 	/**
 	 * Render the options page for plugin

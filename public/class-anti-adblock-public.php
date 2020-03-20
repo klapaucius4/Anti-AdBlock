@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://fsylum.net
+ * @link       https://michalkowalik.pl
  * @since      1.0.0
  *
  * @package    Anti_AdBlock
@@ -18,7 +18,7 @@
  *
  * @package    Anti_AdBlock
  * @subpackage Anti_AdBlock/public
- * @author     Firdaus Zahari <firdaus@fsylum.net>
+ * @author     Michał Kowalik <kontakt@michalkowalik.pl>
  */
 class Anti_AdBlock_Public {
 

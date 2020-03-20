@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       http://fsylum.net
+ * @link       https://michalkowalik.pl
  * @since      1.0.0
  *
  * @package    Anti_AdBlock

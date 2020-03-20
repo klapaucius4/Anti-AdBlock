@@ -3,7 +3,7 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       http://fsylum.net
+ * @link       https://michalkowalik.pl
  * @since      1.0.0
  *
  * @package    Anti_AdBlock
@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    Anti_AdBlock
  * @subpackage Anti_AdBlock/includes
- * @author     Firdaus Zahari <firdaus@fsylum.net>
+ * @author     Michał Kowalik <kontakt@michalkowalik.pl>
  */
 class Anti_AdBlock_Deactivator {
 
