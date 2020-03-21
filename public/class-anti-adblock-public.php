@@ -40,6 +40,9 @@ class Anti_AdBlock_Public {
 	 */
 	private $version;
 
+
+	public $plugin_location;
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -52,6 +55,7 @@ class Anti_AdBlock_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->plugin_location = plugin_dir_url(dirname(__FILE__));
 	}
 
 	/**

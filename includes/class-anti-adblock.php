@@ -57,9 +57,6 @@ class Anti_AdBlock {
 	 */
 	protected $version;
 
-
-	protected $basename;
-
 	/**
 	 * Define the core functionality of the plugin.
 	 *
@@ -70,10 +67,10 @@ class Anti_AdBlock {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
+		
 		$this->plugin_name = 'anti-adblock';
 		$this->version = '1.0.0';
-		$this->basename = dirname( dirname( plugin_basename( __FILE__ ) ) );
+		// $this->basename = dirname( dirname( plugin_basename( __FILE__ ) ) );
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -160,7 +157,7 @@ class Anti_AdBlock {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
-		$this->loader->add_action( 'plugin_action_links_' . $this->basename . '/' . $this->plugin_name . '.php', $plugin_admin, 'admin_plugin_settings_link' );
+		$this->loader->add_action( 'plugin_action_links_' . $this->plugin_name . '/' . $this->plugin_name . '.php', $plugin_admin, 'admin_plugin_settings_link' );
 
 	}
 
