@@ -6,7 +6,7 @@
     <span class="adbp-close">&times;</span>
     <div class="flex-section">
         <div class="text-section">
-            <h2>Wyłącz tego AdBlocka!<br />Bo powiemy Martusi...</h2>
+            <h2>You are yousing ads blocker.</h2>
             <p>Some text in the Modal..</p>
         </div>
         <div class="text-section">
