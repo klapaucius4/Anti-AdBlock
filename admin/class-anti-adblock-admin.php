@@ -153,6 +153,8 @@ class Anti_AdBlock_Admin {
 	 */
 	public function register_setting() {
 
+		// General settings
+
 		add_settings_section(
 			$this->option_name . '_general',
 			__( 'General settings', 'anti-adblock' ),
@@ -190,6 +192,49 @@ class Anti_AdBlock_Admin {
 		register_setting( $this->plugin_name, $this->option_name . '_enabled', 'boolean' );
 		register_setting( $this->plugin_name, $this->option_name . '_position', array( $this, $this->option_name . '_sanitize_position' ) );
 		register_setting( $this->plugin_name, $this->option_name . '_day', 'intval' );
+
+
+
+
+		// Images settings
+
+		add_settings_section(
+			$this->option_name . '_images',
+			__( 'Images', 'anti-adblock' ),
+			array( $this, $this->option_name . '_images_cb' ),
+			$this->plugin_name
+		);
+
+		$browsers = array(
+			'firefox' => array(
+				'adblock' => ''
+			),
+			'chrome' => array(
+
+			),
+			'ie' => array(
+
+			),
+			'edge' => array(
+
+			),
+			'opera' => array(
+
+			),
+			'safari' => array(
+
+			)
+		);
+
+		$extensions = array(
+			'adblock',
+			'adblock_plus',
+			'ublock',
+			'adguard',
+			'nano',
+			'ghostery'
+		);
+
 	}
 
 	/**
@@ -199,6 +244,10 @@ class Anti_AdBlock_Admin {
 	 */
 	public function anti_adblock_general_cb() {
 		echo '<p>' . __( 'Please change the settings accordingly.', 'anti-adblock' ) . '</p>';
+	}
+
+	public function anti_adblock_images_cb() {
+		echo '<p>' . __( 'If you .', 'anti-adblock' ) . '</p>';
 	}
 
 
