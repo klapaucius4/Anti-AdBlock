@@ -6,12 +6,16 @@
     <span class="adbp-close">&times;</span>
     <div class="flex-section">
         <div class="text-section">
-            <h2>You are yousing ads blocker.</h2>
-            <p>Some text in the Modal..</p>
+            <h2>We detected <strong>Ad blocker</strong> extension!</h2>
+            <p>Your browser using extension to disable advertising on our website. Our page </p>
         </div>
-        <div class="text-section">
-            <img class="adbp-image" src="<?= $this->plugin_location; ?>public/img/angry-cat.png" alt="" />
+        <div class="image-section">
+            <img class="adbp-image" src="<?= $this->plugin_location; ?>public/img/sad-man.gif" alt="" />
         </div>
+    </div>
+    <div class="flex-section center">
+      <button class="button button3">How to disable ad blocker plugin in your browser?</button>
+      <button class="button button2">I disabled ad blocker extension. Reload page.</button>
     </div>
 </div>
 
