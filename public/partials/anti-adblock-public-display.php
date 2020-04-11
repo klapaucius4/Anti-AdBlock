@@ -19,6 +19,7 @@
             <h2>How to disable adblock in Firefox</h2>
             <p>dfasd</p>
         </div>
+        <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . 'svg-icons/icon-chrome.php'; ?></div>
     </div>
     <div class="flex-section center">
       <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in your browser?</button>
@@ -31,27 +32,54 @@
 
 <script>
 
-// const modal=document.getElementById("adbp"),closeButton=document.getElementsByClassName("adbp-close")[0],reloadButton=document.getElementById("reload-page-button");window.onload=function(){modal.style.display="block"},closeButton.onclick=function(){modal.style.display="none"},reloadButton.onclick=function(){location.reload()};
+  document.addEventListener('DOMContentLoaded', init, false);
+  function init(){
 
-  const modal = document.getElementById("adbp");
-  const closeButton = document.getElementsByClassName("adbp-close")[0];
-  const reloadButton = document.getElementById("adbp-reload-page-button");
-  const howToDisableButton = document.getElementById('adbp-how-to-disable-button');
+    // constants
+    const modal = document.getElementById("adbp");
+    const closeButton = document.getElementsByClassName("adbp-close")[0];
+    const reloadButton = document.getElementById("adbp-reload-page-button");
+    const howToDisableButton = document.getElementById('adbp-how-to-disable-button');
 
-  window.onload = function() {
-    modal.style.display = "block";
+    // detect adblock
+    adsBlocked(function(blocked){
+      if(blocked){
+        modal.style.display = "block";
+      }
+    });
+
+    // popup actions
+    closeButton.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    reloadButton.onclick = function() {
+      location.reload();
+    }
+
+    howToDisableButton.onclick = function() {
+      document.getElementById('adbp-tab-1').style.display = "none";
+      document.getElementById('adbp-tab-2').style.display = "block";
+    }
+
+  }
+  function adsBlocked(callback){
+    var testURL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    var myInit = {
+      method: 'HEAD',
+      mode: 'no-cors'
+    };
+    var myRequest = new Request(testURL, myInit);
+    fetch(myRequest).then(function(response) {
+      return response;
+    }).then(function(response) {
+      console.log(response);
+      callback(false)
+    }).catch(function(e){
+      console.log(e)
+      callback(true)
+    });
   }
 
-  closeButton.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  reloadButton.onclick = function() {
-    location.reload();
-  }
-
-  howToDisableButton.onclick = function() {
-    document.getElementById('adbp-tab-1').style.display = "none";
-    document.getElementById('adbp-tab-2').style.display = "block";
-  }
+  
 </script>

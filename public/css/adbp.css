@@ -44,6 +44,10 @@
 #adbp .adbp-content .flex-section.center {
     justify-content: center;
 }
+#adbp .adbp-content #adbp-tab-1,
+#adbp .adbp-content #adbp-tab-2 {
+    position: relative;
+}
 #adbp .adbp-content #adbp-tab-1 {
 
 }
@@ -51,6 +55,17 @@
     display: none;
 }
 
+#adbp .adbp-content .bg-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+#adbp .adbp-content .bg-container svg {
+    width: 100%;
+}
 
 /* #adbp .adbp-content .text-section,
 #adbp .adbp-content .image-section {
