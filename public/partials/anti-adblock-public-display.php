@@ -16,13 +16,13 @@
     </div>
     <div id="adbp-tab-2" class="flex-section">
         <div class="text-section">
-            <h2>How to disable adblock in Firefox</h2>
+            <h2>How to disable adblock in <strong><?= $this->current_browser; ?></strong></h2>
             <p>dfasd</p>
         </div>
         <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . 'svg-icons/icon-chrome.php'; ?></div>
     </div>
     <div class="flex-section center">
-      <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in your browser?</button>
+      <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in <?= $this->current_browser; ?>?</button>
       <button id="adbp-reload-page-button" class="button button2">I disabled ad blocker extension. Reload page.</button>
     </div>
     

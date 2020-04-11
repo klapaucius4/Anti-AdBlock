@@ -50,12 +50,19 @@ class Anti_AdBlock_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
+
+
+	 public $current_browser;
+
+	
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 		$this->plugin_location = plugin_dir_url(dirname(__FILE__));
+
+		$this->current_browser = $this->detect_browser();
 	}
 
 	/**
@@ -105,6 +112,14 @@ class Anti_AdBlock_Public {
 
 	public function plugin_footer() {
 		require_once plugin_dir_path( __FILE__ ) . 'partials/anti-adblock-public-display.php';
+	}
+
+
+
+	private function detect_browser(){
+		require_once plugin_dir_path( __FILE__ ) . '../lib/Browser.php';
+		$browser = new Browser();
+		return $browser->getBrowser();
 	}
 
 }
