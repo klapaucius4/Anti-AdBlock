@@ -6,7 +6,7 @@
     <span class="adbp-close">&times;</span>
 
     <div id="adbp-tab-1" class="flex-section">
-        <div class="text-section">
+        <div class="adbp-text-section">
             <h2>We detected <strong>Ad blocker</strong> extension!</h2>
             <p>Your browser using extension to disable advertising on our website. Our page </p>
         </div>
@@ -15,10 +15,16 @@
         </div>
     </div>
     <div id="adbp-tab-2" class="flex-section">
-        <div class="text-section">
+        <div class="adbp-text-section">
             <h2>How to disable adblock in <strong><?= $this->current_browser; ?></strong></h2>
-            <p>dfasd</p>
         </div>
+        <div class="adbp-grid-section">
+            <?php for($i=0; $i<=6; $i++): ?>
+            <div class="">
+              testtt
+            </div>
+            <?php endfor; ?>
+          </div>
         <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . 'svg-icons/icon-chrome.php'; ?></div>
     </div>
     <div class="flex-section center">

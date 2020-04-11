@@ -72,16 +72,24 @@
 #adbp .adbp-content .image-section {
     display: inline;
 } */
-#adbp .adbp-content .text-section {
+#adbp .adbp-content .adbp-text-section {
     min-width: 75%;
 }
-#adbp .adbp-content .text-section h2 {
+#adbp .adbp-content .adbp-text-section h2 {
     
 }
-#adbp .adbp-content .text-section h2 strong {
+#adbp .adbp-content .adbp-text-section h2 strong {
     color: #f44336;
     font-weight: 800;
 }
+#adbp .adbp-content .adbp-grid-section {
+    display: flex;
+    justify-content: space-between;
+}
+#adbp .adbp-content .adbp-grid-section div {
+    
+}
+
 #adbp .adbp-content .image-section {
 
 }
