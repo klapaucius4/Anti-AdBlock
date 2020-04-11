@@ -158,14 +158,14 @@ class Anti_AdBlock_Admin {
 		add_settings_section(
 			$this->option_name . '_general',
 			__( 'General settings', 'anti-adblock' ),
-			array( $this, $this->option_name . '_general_cb' ),
+			array( $this, $this->option_name . '_general' ),
 			$this->plugin_name
 		);
 
 		add_settings_field(
 			$this->option_name . '_enabled',
 			__( 'Plugin enabled', 'anti-adblock' ),
-			array( $this, $this->option_name . '_enabled_cb' ),
+			array( $this, $this->option_name . '_enabled' ),
 			$this->plugin_name,
 			$this->option_name . '_general',
 			array( 'label_for' => $this->option_name . '_enabled' )
@@ -174,7 +174,7 @@ class Anti_AdBlock_Admin {
 		add_settings_field(
 			$this->option_name . '_position',
 			__( 'Text position', 'anti-adblock' ),
-			array( $this, $this->option_name . '_position_cb' ),
+			array( $this, $this->option_name . '_position' ),
 			$this->plugin_name,
 			$this->option_name . '_general',
 			array( 'label_for' => $this->option_name . '_position' )
@@ -183,7 +183,7 @@ class Anti_AdBlock_Admin {
 		add_settings_field(
 			$this->option_name . '_day',
 			__( 'Post is outdated after', 'anti-adblock' ),
-			array( $this, $this->option_name . '_day_cb' ),
+			array( $this, $this->option_name . '_day' ),
 			$this->plugin_name,
 			$this->option_name . '_general',
 			array( 'label_for' => $this->option_name . '_day' )
@@ -201,7 +201,7 @@ class Anti_AdBlock_Admin {
 		add_settings_section(
 			$this->option_name . '_images',
 			__( 'Images', 'anti-adblock' ),
-			array( $this, $this->option_name . '_images_cb' ),
+			array( $this, $this->option_name . '_images' ),
 			$this->plugin_name
 		);
 
@@ -242,16 +242,16 @@ class Anti_AdBlock_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function anti_adblock_general_cb() {
+	public function anti_adblock_general() {
 		echo '<p>' . __( 'Please change the settings accordingly.', 'anti-adblock' ) . '</p>';
 	}
 
-	public function anti_adblock_images_cb() {
+	public function anti_adblock_images() {
 		echo '<p>' . __( 'If you .', 'anti-adblock' ) . '</p>';
 	}
 
 
-	public function anti_adblock_enabled_cb() {
+	public function anti_adblock_enabled() {
 		$enabled = get_option( $this->option_name . '_enabled' );
 		?>
 			<fieldset>
@@ -268,7 +268,7 @@ class Anti_AdBlock_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function anti_adblock_position_cb() {
+	public function anti_adblock_position() {
 		$position = get_option( $this->option_name . '_position' );
 		?>
 			<fieldset>
@@ -290,7 +290,7 @@ class Anti_AdBlock_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function anti_adblock_day_cb() {
+	public function anti_adblock_day() {
 		$day = get_option( $this->option_name . '_day' );
 		echo '<input type="text" name="' . $this->option_name . '_day' . '" id="' . $this->option_name . '_day' . '" value="' . $day . '"> ' . __( 'days', 'anti-adblock' );
 	}

@@ -100,8 +100,7 @@ class Anti_AdBlock_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/anti-adblock-public.js', array(), $this->version, false );
-
+		 
 	}
 
 	public function plugin_footer() {
