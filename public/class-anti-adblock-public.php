@@ -20,40 +20,30 @@
  * @subpackage Anti_AdBlock/public
  * @author     Michał Kowalik <kontakt@michalkowalik.pl>
  */
+
+const BROWSER_LIST = array(
+	'chrome',
+	'firefox',
+	'ie',
+	'edge',
+	'opera',
+	'safari',
+	'android'
+);
+
+const EXTENSION_LIST = array(
+	
+);
+ 
 class Anti_AdBlock_Public {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
 	private $plugin_name;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
 	private $version;
-
 
 	public $plugin_location;
 
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
-
-
-	 public $current_browser;
-
+	public $browser;
 	
 	public function __construct( $plugin_name, $version ) {
 
@@ -62,7 +52,7 @@ class Anti_AdBlock_Public {
 
 		$this->plugin_location = plugin_dir_url(dirname(__FILE__));
 
-		$this->current_browser = $this->detect_browser();
+		$this->init_browser();
 	}
 
 	/**
@@ -116,10 +106,11 @@ class Anti_AdBlock_Public {
 
 
 
-	private function detect_browser(){
+	private function init_browser(){
 		require_once plugin_dir_path( __FILE__ ) . '../lib/Browser.php';
 		$browser = new Browser();
-		return $browser->getBrowser();
+		$this->browser = $browser;
+		// return $browser->getBrowser();
 	}
 
 }

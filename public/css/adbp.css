@@ -95,6 +95,10 @@
     
 }
 
+#adbp .adbp-content .adbp-flexbox div.adbp-flex-item svg {
+    max-height: 100%;
+}
+
 #adbp .adbp-content .image-section {
 
 }

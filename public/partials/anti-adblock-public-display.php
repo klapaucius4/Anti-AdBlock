@@ -16,19 +16,19 @@
     </div>
     <div id="adbp-tab-2" class="flex-section">
         <div class="adbp-text-section">
-            <h2>How to disable adblock in <strong><?= $this->current_browser; ?></strong></h2>
+            <h2>How to disable adblock in <strong><?= $this->browser->getBrowser(); ?></strong></h2>
         </div>
         <div class="adbp-flexbox">
             <?php for($i=0; $i<6; $i++): ?>
             <div class="adbp-flex-item">
-              testtt
+              <?php require plugin_dir_path( __FILE__ ) . '../img/icons/firefox.svg'; ?>
             </div>
             <?php endfor; ?>
           </div>
-        <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . 'svg-icons/icon-chrome.php'; ?></div>
+        <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . '../img/icons/chrome.svg'; ?></div>
     </div>
     <div class="flex-section center">
-      <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in <?= $this->current_browser; ?>?</button>
+      <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in <?= $this->browser->getBrowser(); ?>?</button>
       <button id="adbp-reload-page-button" class="button button2">I disabled ad blocker extension. Reload page.</button>
     </div>
     
