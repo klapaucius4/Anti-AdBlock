@@ -82,11 +82,16 @@
     color: #f44336;
     font-weight: 800;
 }
-#adbp .adbp-content .adbp-grid-section {
+#adbp .adbp-content .adbp-flexbox {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
-#adbp .adbp-content .adbp-grid-section div {
+#adbp .adbp-content .adbp-flexbox div.adbp-flex-item {
+    width: 33%;
+    height: 175px;
+    background-color: #eee;
+    margin: 10px auto;
     
 }
 

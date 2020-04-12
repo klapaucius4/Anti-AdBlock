@@ -18,9 +18,9 @@
         <div class="adbp-text-section">
             <h2>How to disable adblock in <strong><?= $this->current_browser; ?></strong></h2>
         </div>
-        <div class="adbp-grid-section">
-            <?php for($i=0; $i<=6; $i++): ?>
-            <div class="">
+        <div class="adbp-flexbox">
+            <?php for($i=0; $i<6; $i++): ?>
+            <div class="adbp-flex-item">
               testtt
             </div>
             <?php endfor; ?>
