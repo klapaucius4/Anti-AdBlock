@@ -21,7 +21,9 @@
         <div class="adbp-flexbox">
             <?php foreach(EXTENSION_LIST as $icon): ?>
             <div class="adbp-flex-item">
-              <?php require plugin_dir_path( __FILE__ ) . '../img/icons/'.$icon.'.svg'; ?>
+              <div style="width: 100px;">
+                <?php require plugin_dir_path( __FILE__ ) . '../img/icons/'.$icon.'.svg'; ?>
+              </div>
             </div>
             <?php endforeach; ?>
           </div>

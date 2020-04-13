@@ -90,9 +90,9 @@
 #adbp .adbp-content .adbp-flexbox div.adbp-flex-item {
     width: 33%;
     height: 175px;
-    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.7);
     margin: 10px auto;
-    
+    border-radius: 10px;
 }
 
 #adbp .adbp-content .adbp-flexbox div.adbp-flex-item svg {

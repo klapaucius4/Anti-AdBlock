@@ -34,10 +34,10 @@ const BROWSER_LIST = array(
 const EXTENSION_LIST = array(
 	'abp',
 	'adblock',
+	'ublock',
 	'adguard',
 	'ghostery',
 	'nano',
-	'ublock',
 );
 
  
