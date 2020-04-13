@@ -32,8 +32,14 @@ const BROWSER_LIST = array(
 );
 
 const EXTENSION_LIST = array(
-	
+	'abp',
+	'adblock',
+	'adguard',
+	'ghostery',
+	'nano',
+	'ublock',
 );
+
  
 class Anti_AdBlock_Public {
 

@@ -19,11 +19,11 @@
             <h2>How to disable adblock in <strong><?= $this->browser->getBrowser(); ?></strong></h2>
         </div>
         <div class="adbp-flexbox">
-            <?php for($i=0; $i<6; $i++): ?>
+            <?php foreach(EXTENSION_LIST as $icon): ?>
             <div class="adbp-flex-item">
-              <?php require plugin_dir_path( __FILE__ ) . '../img/icons/firefox.svg'; ?>
+              <?php require plugin_dir_path( __FILE__ ) . '../img/icons/'.$icon.'.svg'; ?>
             </div>
-            <?php endfor; ?>
+            <?php endforeach; ?>
           </div>
         <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . '../img/icons/chrome.svg'; ?></div>
     </div>
