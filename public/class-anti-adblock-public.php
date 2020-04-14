@@ -50,6 +50,7 @@ class Anti_AdBlock_Public {
 	public $plugin_location;
 
 	public $browser;
+	public $browser_slug;
 	
 	public function __construct( $plugin_name, $version ) {
 
@@ -116,6 +117,7 @@ class Anti_AdBlock_Public {
 		require_once plugin_dir_path( __FILE__ ) . '../lib/Browser.php';
 		$browser = new Browser();
 		$this->browser = $browser;
+		$this->browser_slug = sanitize_title($this->browser->getBrowser());
 		// return $browser->getBrowser();
 	}
 

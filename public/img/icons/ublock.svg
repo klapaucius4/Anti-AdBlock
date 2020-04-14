@@ -4,11 +4,6 @@
 	 id="svg2" inkscape:export-filename="/home/rhill/permahome/workshop/ublock/src/img/icon_16.png" inkscape:export-xdpi="11.25" inkscape:export-ydpi="11.25" inkscape:version="0.48.4 r9939" sodipodi:docname="ublock.svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 113.6 129.6"
 	 style="enable-background:new 0 0 113.6 129.6;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#800000;stroke:#FFFFFF;stroke-width:1.6019;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:none;stroke:#FFFFFF;stroke-width:6;}
-	.st2{fill:#FFFFFF;}
-</style>
 <defs>
 	
 	<inkscape:path-effect  effect="spiro" id="path-effect3995" is_visible="true"></inkscape:path-effect>
@@ -23,17 +18,19 @@
 		<g id="g5639" transform="matrix(0.6778654,0,0,0.56141828,-241.07537,-247.27712)" inkscape:export-filename="/home/rhill/permahome/workshop/ublock/platform/chromium/img/browsericons/icon19-off.png" inkscape:export-xdpi="26.719999" inkscape:export-ydpi="26.719999">
 	</g>
 	<g id="g6907" transform="matrix(-0.6945203,0,0,0.56109687,375.02964,-247.42947)">
-		<path id="path6909" inkscape:connector-curvature="0" sodipodi:nodetypes="cccccc" class="st0" d="M458.2,670.5
-			c-80.6-57-80.6-57-80.6-199.6c34.6,0,46.1,0,80.6-28.5 M458.2,670.5c80.6-57,80.6-57,80.6-199.6c-34.6,0-46.1,0-80.6-28.5"/>
+		
+			<path id="path6909" inkscape:connector-curvature="0" sodipodi:nodetypes="cccccc" style="fill:#800000;stroke:#FFFFFF;stroke-width:1.6019;stroke-linecap:round;stroke-linejoin:round;" d="
+			M458.2,670.5c-80.6-57-80.6-57-80.6-199.6c34.6,0,46.1,0,80.6-28.5 M458.2,670.5c80.6-57,80.6-57,80.6-199.6
+			c-34.6,0-46.1,0-80.6-28.5"/>
 	</g>
 </g>
 <g id="layer5" transform="translate(-17.872548,-17.32535)" inkscape:groupmode="layer" inkscape:label="text">
 	
-		<ellipse id="path2996-3" inkscape:export-filename="/home/rhill/permahome/workshop/ublock/platform/chromium/img/browsericons/path2996.png" inkscape:export-xdpi="26.719999" inkscape:export-ydpi="26.719999" sodipodi:cx="102.12254" sodipodi:cy="81.325356" sodipodi:rx="11.999999" sodipodi:ry="12" class="st1" cx="86.7" cy="78.1" rx="16" ry="16">
+		<ellipse id="path2996-3" inkscape:export-filename="/home/rhill/permahome/workshop/ublock/platform/chromium/img/browsericons/path2996.png" inkscape:export-xdpi="26.719999" inkscape:export-ydpi="26.719999" sodipodi:cx="102.12254" sodipodi:cy="81.325356" sodipodi:rx="11.999999" sodipodi:ry="12" style="fill:none;stroke:#FFFFFF;stroke-width:6;" cx="86.7" cy="78.1" rx="16" ry="16">
 	</ellipse>
 	<g id="text3778" transform="scale(1.0018026,0.99820067)">
-		<path id="path3783" inkscape:connector-curvature="0" sodipodi:nodetypes="ccccccccccc" class="st2" d="M74.5,82.3
-			c0,11-5,16-16,16c-11,0-16-5-16-16v-24h8v24c0,7,1,8,8,8c7,0,8-1,8-8v-24h8V82.3z"/>
+		<path id="path3783" inkscape:connector-curvature="0" sodipodi:nodetypes="ccccccccccc" style="fill:#FFFFFF;" d="M74.5,82.3
+			c0,11-5,16-16,16s-16-5-16-16v-24h8v24c0,7,1,8,8,8s8-1,8-8v-24h8V82.3z"/>
 	</g>
 </g>
 </svg>

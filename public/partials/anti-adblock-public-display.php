@@ -27,7 +27,7 @@
             </div>
             <?php endforeach; ?>
           </div>
-        <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . '../img/icons/chrome.svg'; ?></div>
+        <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . '../img/icons/'.$this->browser_slug.'.svg'; ?></div>
     </div>
     <div class="flex-section center">
       <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in <?= $this->browser->getBrowser(); ?>?</button>
