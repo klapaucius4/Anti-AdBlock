@@ -146,21 +146,34 @@ class Anti_AdBlock_Admin {
 		require_once plugin_dir_path( __FILE__ ) . 'partials/anti-adblock-admin-display.php';
 	}
 
-	/**
-	 * Register all related settings of this plugin
-	 *
-	 * @since  1.0.0
-	 */
-	public function register_setting() {
 
+
+
+	public function add_settings_sections(){
 		// General settings
-
 		add_settings_section(
 			$this->option_name . '_general',
 			__( 'General settings', 'anti-adblock' ),
-			array( $this, $this->option_name . '_general' ),
+			function(){
+				echo '<p>' . __( 'Please change the settings accordingly.', 'anti-adblock' ) . '</p>';
+			},
 			$this->plugin_name
 		);
+
+		// Files settings
+		add_settings_section(
+			$this->option_name . '_files',
+			__( 'Files', 'anti-adblock' ),
+			function(){
+				echo '<p>' . __( 'You can change default files displayed in a popup window.', 'anti-adblock' ) . '</p>';
+			},
+			$this->plugin_name
+		);
+	}
+
+
+
+	public function add_settings_fields(){
 
 		add_settings_field(
 			$this->option_name . '_enabled',
@@ -170,7 +183,6 @@ class Anti_AdBlock_Admin {
 			$this->option_name . '_general',
 			array( 'label_for' => $this->option_name . '_enabled' )
 		);
-
 		add_settings_field(
 			$this->option_name . '_position',
 			__( 'Text position', 'anti-adblock' ),
@@ -179,7 +191,6 @@ class Anti_AdBlock_Admin {
 			$this->option_name . '_general',
 			array( 'label_for' => $this->option_name . '_position' )
 		);
-
 		add_settings_field(
 			$this->option_name . '_day',
 			__( 'Post is outdated after', 'anti-adblock' ),
@@ -189,68 +200,37 @@ class Anti_AdBlock_Admin {
 			array( 'label_for' => $this->option_name . '_day' )
 		);
 
+
+		
+		add_settings_field(
+			$this->option_name . '_image_1',
+			__( 'Image 1', 'anti-adblock' ),
+			array( $this, $this->option_name . '_image_1' ),
+			$this->plugin_name,
+			$this->option_name . '_files',
+			array( 'label_for' => $this->option_name . '_image_1' )
+		);
+		
+
+	}
+
+	public function register_settings(){
+
 		register_setting( $this->plugin_name, $this->option_name . '_enabled', 'boolean' );
 		register_setting( $this->plugin_name, $this->option_name . '_position', array( $this, $this->option_name . '_sanitize_position' ) );
 		register_setting( $this->plugin_name, $this->option_name . '_day', 'intval' );
 
 
-
-
-		// Images settings
-
-		add_settings_section(
-			$this->option_name . '_images',
-			__( 'Images', 'anti-adblock' ),
-			array( $this, $this->option_name . '_images' ),
-			$this->plugin_name
-		);
-
-		$browsers = array(
-			'firefox' => array(
-				'adblock' => ''
-			),
-			'chrome' => array(
-
-			),
-			'ie' => array(
-
-			),
-			'edge' => array(
-
-			),
-			'opera' => array(
-
-			),
-			'safari' => array(
-
-			)
-		);
-
-		$extensions = array(
-			'adblock',
-			'adblock_plus',
-			'ublock',
-			'adguard',
-			'nano',
-			'ghostery'
-		);
-
-	}
-
-	/**
-	 * Render the text for the general section
-	 *
-	 * @since  1.0.0
-	 */
-	public function anti_adblock_general() {
-		echo '<p>' . __( 'Please change the settings accordingly.', 'anti-adblock' ) . '</p>';
-	}
-
-	public function anti_adblock_images() {
-		echo '<p>' . __( 'If you .', 'anti-adblock' ) . '</p>';
+		register_setting( $this->plugin_name, $this->option_name . '_image_1', 'text' );
 	}
 
 
+
+
+
+
+
+	// General settings fields begin
 	public function anti_adblock_enabled() {
 		$enabled = get_option( $this->option_name . '_enabled' );
 		?>
@@ -262,12 +242,6 @@ class Anti_AdBlock_Admin {
 			</fieldset>
 		<?php
 	}
-
-	/**
-	 * Render the radio input field for position option
-	 *
-	 * @since  1.0.0
-	 */
 	public function anti_adblock_position() {
 		$position = get_option( $this->option_name . '_position' );
 		?>
@@ -284,16 +258,28 @@ class Anti_AdBlock_Admin {
 			</fieldset>
 		<?php
 	}
-
-	/**
-	 * Render the treshold day input for this plugin
-	 *
-	 * @since  1.0.0
-	 */
 	public function anti_adblock_day() {
 		$day = get_option( $this->option_name . '_day' );
 		echo '<input type="text" name="' . $this->option_name . '_day' . '" id="' . $this->option_name . '_day' . '" value="' . $day . '"> ' . __( 'days', 'anti-adblock' );
 	}
+	// General settings fields end
+
+
+	// Files settings fields begin
+	public function anti_adblock_image_1() {
+		$image = get_option( $this->option_name . '_image_1' );
+		?>
+			<fieldset>
+				<label>
+					<input type="number" name="<?php echo $this->option_name . '_image_1' ?>" id="<?php echo $this->option_name . '_image_1' ?>" value="<?= $image; ?>">
+				</label>
+			</fieldset>
+		<?php
+	}
+	// Files settings field end
+
+
+
 
 	/**
 	 * Sanitize the text position value before being saved to database
