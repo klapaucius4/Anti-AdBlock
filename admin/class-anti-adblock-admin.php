@@ -149,6 +149,16 @@ class Anti_AdBlock_Admin {
 
 
 
+
+
+
+
+
+	/**
+	 * SETTINGS BEGIN
+	 *
+	 * @since  1.0.0
+	 */
 	public function add_settings_sections(){
 		// General settings
 		add_settings_section(
@@ -217,7 +227,11 @@ class Anti_AdBlock_Admin {
 	public function register_settings(){
 
 		register_setting( $this->plugin_name, $this->option_name . '_enabled', 'boolean' );
-		register_setting( $this->plugin_name, $this->option_name . '_position', array( $this, $this->option_name . '_sanitize_position' ) );
+		register_setting( $this->plugin_name, $this->option_name . '_position', function($position){
+			if ( in_array( $position, array( 'before', 'after' ), true ) ) {
+				return $position;
+			}
+		});
 		register_setting( $this->plugin_name, $this->option_name . '_day', 'intval' );
 
 
@@ -228,6 +242,7 @@ class Anti_AdBlock_Admin {
 
 
 
+	
 
 
 	// General settings fields begin
@@ -280,18 +295,7 @@ class Anti_AdBlock_Admin {
 
 
 
+	//SETTINGS END
 
-	/**
-	 * Sanitize the text position value before being saved to database
-	 *
-	 * @param  string $position $_POST value
-	 * @since  1.0.0
-	 * @return string           Sanitized value
-	 */
-	public function anti_adblock_sanitize_position( $position ) {
-		if ( in_array( $position, array( 'before', 'after' ), true ) ) {
-	        return $position;
-	    }
-	}
 
 }
