@@ -1,17 +1,16 @@
 
 
 #adbp {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    /* padding-top: 50vh; Location of the box */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 #adbp .adbp-content {
@@ -56,7 +55,7 @@
 }
 
 #adbp .adbp-content .bg-container {
-    background: url(../img/chrome.svg);
+    /* background: url(../img/chrome.svg); */
     position: absolute;
     right: 0;
     top: 0;
@@ -85,16 +84,29 @@
     flex-wrap: wrap;
 }
 #adbp .adbp-content .adbp-flexbox div.adbp-flex-item {
+    position: relative;
     width: 33%;
     background-color: rgba(238, 238, 238, 0.7);
-    margin: 10px auto;
+    /* margin: 10px auto; */
     border-radius: 10px;
+    /* border: 1px solid #555; */
 }
-#adbp .adbp-content .adbp-flexbox div.adbp-flex-item .adbp-extension-icon {
-    width: 140px;
+/* #adbp .adbp-content .adbp-flexbox div.adbp-flex-item > * {
+    display: inline;
+} */
+#adbp .adbp-content .adbp-flexbox div.adbp-flex-item .extension-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    /* height: 100px; */
+    opacity: .75;
 }
-#adbp .adbp-content .adbp-flexbox div.adbp-flex-item svg {
-    height: 140px;
+#adbp .adbp-content .adbp-flexbox div.adbp-flex-item .extension-icon svg {
+    height: 100%;
+}
+#adbp .adbp-content .adbp-flexbox div.adbp-flex-item video {
+    width: 100% !important;
 }
 
 #adbp .adbp-content .image-section {
@@ -130,3 +142,33 @@
 #adbp .button3 {background-color: #f44336;} /* Red */ 
 #adbp .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
 #adbp .button5 {background-color: #555555;} /* Black */
+
+
+#adbp .w-10 {
+    width: 10% !important;
+}
+#adbp .w-15 {
+    width: 15% !important;
+}
+#adbp .w-25 {
+    width: 25% !important;
+}
+#adbp .w-33 {
+    width: 33.333% !important;
+}
+#adbp .w-50 {
+    width: 50% !important;
+}
+#adbp .w-75 {
+    width: 75% !important;
+}
+#adbp .w-100 {
+    width: 100% !important;
+}
+
+#adbp .mt-10 {
+    margin-top: 10px !important;
+}
+#adbp .mt-20 {
+    margin-top: 20px !important;
+}
