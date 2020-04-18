@@ -39,8 +39,10 @@
 </div>
 
 <script>
+  "use strict";
 
   document.addEventListener('DOMContentLoaded', init, false);
+  
   function init(){
 
     // constants
@@ -72,7 +74,8 @@
 
   }
   function adsBlocked(callback){
-    var testURL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    var testURL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    var testURL = 'https://www.google.com/adsense/';
     var myInit = {
       method: 'HEAD',
       mode: 'no-cors'
@@ -81,10 +84,8 @@
     fetch(myRequest).then(function(response) {
       return response;
     }).then(function(response) {
-      console.log(response);
       callback(false)
     }).catch(function(e){
-      console.log(e)
       callback(true)
     });
   }

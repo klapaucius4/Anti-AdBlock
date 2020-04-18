@@ -1,9 +1,11 @@
 // https://jonathanmh.com/how-to-detect-ad-blockers-adblock-ublock-etc/
 
+/*
 document.addEventListener('DOMContentLoaded', init, false);
 
 function init(){
   adsBlocked(function(blocked){
+    console.log('test');
     if(blocked){
       document.getElementById('result').innerHTML = 'ads are blocked';
     } else {
@@ -25,10 +27,9 @@ function adsBlocked(callback){
   fetch(myRequest).then(function(response) {
     return response;
   }).then(function(response) {
-    console.log(response);
     callback(false)
   }).catch(function(e){
-    console.log(e)
     callback(true)
   });
 }
+*/
