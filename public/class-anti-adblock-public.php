@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://fsylum.net
+ * @link       https://michalkowalik.pl
  * @since      1.0.0
  *
  * @package    Anti_AdBlock
@@ -18,40 +18,48 @@
  *
  * @package    Anti_AdBlock
  * @subpackage Anti_AdBlock/public
- * @author     Firdaus Zahari <firdaus@fsylum.net>
+ * @author     Michał Kowalik <kontakt@michalkowalik.pl>
  */
+
+const BROWSER_LIST = array(
+	'chrome',
+	'firefox',
+	'ie',
+	'edge',
+	'opera',
+	'safari',
+	'android'
+);
+
+const EXTENSION_LIST = array(
+	'abp',
+	'adblock',
+	'ublock',
+	'adguard',
+	'ghostery',
+	'nano',
+);
+
+ 
 class Anti_AdBlock_Public {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
 	private $plugin_name;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
 	private $version;
 
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
+	public $plugin_location;
+
+	public $browser;
+	public $browser_slug;
+	
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->plugin_location = plugin_dir_url(dirname(__FILE__));
+
+		$this->init_browser();
 	}
 
 	/**
@@ -73,7 +81,7 @@ class Anti_AdBlock_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/anti-adblock-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/adbp.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,55 +104,21 @@ class Anti_AdBlock_Public {
 		 * class.
 		 */
 
-		// wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/anti-adblock-public.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/anti-adblock-public.js', array(), $this->version, false );
-
+		 
 	}
 
-	public function the_content( $post_content ) {
+	public function plugin_footer() {
+		require_once plugin_dir_path( __FILE__ ) . 'partials/anti-adblock-public-display.php';
+	}
 
-		// var_dump('test'); exit;
-		$post_content = '';
-		$post_content .= '<div id="anti-adblock">';
-		$post_content .= '<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>';
-		$post_content .= '</div>';
 
-		// if ( is_main_query() && is_singular('post') ) {
-		// 	$position  = get_option( 'anti_adblock_position', 'before' );
-		// 	$days      = (int) get_option( 'anti_adblock_day', 0 );
-		// 	$date_now  = new DateTime( current_time('mysql') );
-		// 	$date_old  = new DateTime( get_the_modified_time('Y-m-d H:i:s') );
-		// 	$date_diff = $date_old->diff( $date_now );
 
-		// 	if ( $date_diff->days > $days ) {
-		// 		$class = 'is-outdated';
-		// 	} else {
-		// 		$class = 'is-fresh';
-		// 	}
-
-		// 	// Filter the text
-		// 	$notice = sprintf(
-		// 				_n(
-		// 					'This post is last updated %s day ago.',
-		// 					'This post is last updated %s days ago.',
-		// 					$date_diff->days,
-		// 					'anti-adblock'
-		// 				),
-		// 				$date_diff->days
-		// 			);
-
-		// 	// Add the class
-		// 	$notice = '<div class="anti-adblock %s">' . $notice . '</div>';
-		// 	$notice = sprintf( $notice, $class );
-
-		// 	if ( 'after' == $position ) {
-		// 		$post_content .= $notice;
-		// 	} else {
-		// 		$post_content = $notice . $post_content;
-		// 	}
-		// }
-
-        return $post_content;
+	private function init_browser(){
+		require_once plugin_dir_path( __FILE__ ) . '../lib/Browser.php';
+		$browser = new Browser();
+		$this->browser = $browser;
+		$this->browser_slug = sanitize_title($this->browser->getBrowser());
+		// return $browser->getBrowser();
 	}
 
 }

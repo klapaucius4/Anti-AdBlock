@@ -14,13 +14,17 @@
 
     min-height: 50vh;;
 }
+#anti-adblock-admin-container h2.title {
+    margin-bottom: 50px;
+}
 #anti-adblock-admin-container .detected-adblock {
-    /* position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white; */
+
+    /* background: white; */
+    display: none;
+}
+#anti-adblock-admin-container .detected-adblock p {
+    color: red;
+    font-size: 18px;
 }
 
 

@@ -8,7 +8,7 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://fsylum.net
+ * @link              https://michalkowalik.pl/
  * @since             1.0.0
  * @package           Anti_AdBlock
  *
@@ -17,8 +17,8 @@
  * Plugin URI:        http://wordpress.org/plugins/anti-adblock
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
- * Author:            Firdaus Zahari
- * Author URI:        http://fsylum.net
+ * Author:            Michał Kowalik
+ * Author URI:        https://michalkowalik.pl/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       anti-adblock

@@ -1,6 +1,15 @@
 # Anti AdBlock
 
-Anti AdBlock is Wordpress Plugin to detect Adblock extensions and block access to website until user disable this adblock extension.
+**Anti AdBlock** is Wordpress Plugin to detect Adblock extensions and block access to website until user disable this adblock extension.
+This plugin shows your page's users how to turn off the blocking ad extensions from most popular web browsers. This is done through simple and short movies in webm format. This plugin has **25 different movies** for any browser and any extension.
+
+Supported browsers and ad blocking extensions:
+  - Google Chrome
+  - Mozilla Firefox
+  - MS Edge
+  - MS Internet Explorer
+  - Opera
+  - Safari
 
 ## Installation
 

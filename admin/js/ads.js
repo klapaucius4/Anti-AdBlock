@@ -1,6 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-    var div=document.createElement('div');
-    div.id='fGheL49czm9jNWvh';
-    div.style.display='none';
-    document.getElementsByTagName("body").innerHTML = div;
-});
+(function( $ ) {
+	'use strict';
+    $( document ).ready(function() {
+        var div = $('<div>');
+        div.attr('id', 'fGheL49czm9jNWvh');
+        div.css('display', 'none');
+
+        div.appendTo('body');
+
+        // $('.anti-adblock-admin-containe').append(div);
+    });
+})( jQuery );
