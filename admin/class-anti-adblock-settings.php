@@ -120,7 +120,15 @@ class Anti_AdBlock_Settings {
 					'type'			=> 'radio',
 					'options'		=> array( 'superman' => 'Superman', 'batman' => 'Batman', 'ironman' => 'Iron Man' ),
 					'default'		=> 'batman'
-				)
+				),
+				array(
+					'id' 			=> 'file_field',
+					'label'			=> __( 'Some File' , $this->textdomain ),
+					'description'	=> __( 'This is a standard file field.', $this->textdomain ),
+					'type'			=> 'file',
+					'default'		=> '',
+					// 'placeholder'	=> __( 'Placeholder text', $this->textdomain )
+				),
 			)
 		);
 
@@ -291,6 +299,10 @@ class Anti_AdBlock_Settings {
 					$html .= '<option ' . selected( $selected, true, false ) . ' value="' . esc_attr( $k ) . '" />' . $v . '</label> ';
 				}
 				$html .= '</select> ';
+			break;
+
+			case 'file':
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" value="' . $data . '"/>' . "\n";
 			break;
 
 		}
