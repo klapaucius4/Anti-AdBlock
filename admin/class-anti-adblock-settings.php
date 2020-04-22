@@ -315,6 +315,10 @@ class Anti_AdBlock_Settings {
 				$html .= '<br/><span class="description">' . $field['description'] . '</span>';
 			break;
 
+			case 'file':
+				$html .= '<br/><span class="description">' . $field['description'] . '</span>';
+			break;
+
 			default:
 				$html .= '<label for="' . esc_attr( $field['id'] ) . '"><span class="description">' . $field['description'] . '</span></label>' . "\n";
 			break;
