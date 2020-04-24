@@ -126,8 +126,14 @@ class Anti_AdBlock_Settings {
 					'label'			=> __( 'Some File' , $this->textdomain ),
 					'description'	=> __( 'This is a standard file field.', $this->textdomain ),
 					'type'			=> 'file',
-					'default'		=> '',
-					// 'placeholder'	=> __( 'Placeholder text', $this->textdomain )
+					'default'		=> ''
+				),
+				array(
+					'id' 			=> 'file_field_2',
+					'label'			=> __( 'Some File 2' , $this->textdomain ),
+					'description'	=> __( 'This is a standard file field.', $this->textdomain ),
+					'type'			=> 'file',
+					'default'		=> ''
 				),
 			)
 		);
@@ -345,6 +351,36 @@ class Anti_AdBlock_Settings {
 		// 	add_settings_error( $this->plugin_slug, 'no-password', __('A password is required.', $this->textdomain), 'error' );
 		// 	return false;
 		// }
+		echo "<pre>";
+		print_r($_FILES); exit;
+
+		$keys = array_keys($_FILES);
+		$i = 0;
+		
+		foreach ($_FILES as $image) {
+
+			// if a files was upload
+			if ($image['size']) {
+				// if it is an image
+				if (preg_match('/(jpg|jpeg|png|gif)$/', $image['type'])) {
+				   $override = array('test_form' => false);
+				   $file = wp_handle_upload($image, $override);
+		
+				   $plugin_options[$keys[$i]] = $file['url'];
+				} else {
+				   $options = get_option('plugin_options');
+				   $plugin_options[$keys[$i]] = $options[$logo];
+				   wp_die('No image was uploaded.');
+				}
+			}
+		
+			// else, retain the image that's already on file.
+			else {
+				$options = get_option('data');
+				$data[$keys[$i]] = $options[$keys[$i]];
+			}
+			$i++;
+		}
 
 		return $data;
 	}
@@ -372,7 +408,7 @@ class Anti_AdBlock_Settings {
 		<?php $this->do_script_for_tabbed_nav(); ?>
 		<!-- Tab navigation ends -->
 
-		<form action="options.php" method="POST">
+		<form action="options.php" method="POST" enctype="multipart/form-data">
 	        <?php settings_fields( $this->plugin_slug ); ?>
 	        <div class="settings-container">
 	        <?php do_settings_sections( $this->plugin_slug ); ?>
