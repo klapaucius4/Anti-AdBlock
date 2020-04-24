@@ -365,11 +365,11 @@ class Anti_AdBlock_Settings {
 				if (preg_match('/(jpg|jpeg|png|gif)$/', $image['type'])) {
 				   $override = array('test_form' => false);
 				   $file = wp_handle_upload($image, $override);
-		
-				   $plugin_options[$keys[$i]] = $file['url'];
+				   
+				   $data[$keys[$i]] = $file['url'];
 				} else {
-				   $options = get_option('plugin_options');
-				   $plugin_options[$keys[$i]] = $options[$logo];
+				   $options = get_option('data');
+				   $data[$keys[$i]] = $options[$logo];
 				   wp_die('No image was uploaded.');
 				}
 			}
