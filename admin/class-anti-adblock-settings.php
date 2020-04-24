@@ -7,15 +7,13 @@ class Anti_AdBlock_Settings {
     private $file;
 	private $plugin_name;
 	private $plugin_slug;
-	private $textdomain;
 	private $options;
 	private $settings;
 
 	public function __construct( $plugin_name, $plugin_slug, $file ) {
 		$this->file = $file;
-		$this->plugin_slug = $plugin_slug;
 		$this->plugin_name = $plugin_name;
-		$this->textdomain = str_replace('_', '-', $plugin_slug);
+		$this->plugin_slug = $plugin_slug;
 
 		// Initialise settings
 		add_action( 'admin_init', array( $this, 'init' ) );
@@ -51,7 +49,7 @@ class Anti_AdBlock_Settings {
 	 * @return array 		Modified links
 	 */
 	public function add_settings_link( $links ) {
-		$settings_link = '<a href="options-general.php?page='.$this->plugin_slug.'">' . __( 'Settings', $this->textdomain ) . '</a>';
+		$settings_link = '<a href="options-general.php?page='.$this->plugin_slug.'">' . __( 'Settings', $this->plugin_slug ) . '</a>';
   		array_push( $links, $settings_link );
   		return $links;
 	}
@@ -63,75 +61,75 @@ class Anti_AdBlock_Settings {
 	private function settings_fields() {
 
 		$settings['easy'] = array(
-			'title'					=> __( 'Standard', $this->textdomain ),
-			'description'			=> __( 'These are fairly standard form input fields.', $this->textdomain ),
+			'title'					=> __( 'Standard', $this->plugin_slug ),
+			'description'			=> __( 'These are fairly standard form input fields.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'text_field',
-					'label'			=> __( 'Some Text' , $this->textdomain ),
-					'description'	=> __( 'This is a standard text field.', $this->textdomain ),
+					'label'			=> __( 'Some Text' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
 					'type'			=> 'text',
 					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', $this->textdomain )
+					'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
 				),
 				array(
 					'id' 			=> 'password_field',
-					'label'			=> __( 'A Password' , $this->textdomain ),
-					'description'	=> __( 'This is a standard password field.', $this->textdomain ),
+					'label'			=> __( 'A Password' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard password field.', $this->plugin_slug ),
 					'type'			=> 'password',
 					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', $this->textdomain )
+					'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
 				),
 				array(
 					'id' 			=> 'secret_text_field',
-					'label'			=> __( 'Some Secret Text' , $this->textdomain ),
-					'description'	=> __( 'This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved.', $this->textdomain ),
+					'label'			=> __( 'Some Secret Text' , $this->plugin_slug ),
+					'description'	=> __( 'This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved.', $this->plugin_slug ),
 					'type'			=> 'text_secret',
 					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', $this->textdomain )
+					'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
 				),
 				array(
 					'id' 			=> 'text_block',
-					'label'			=> __( 'A Text Block' , $this->textdomain ),
-					'description'	=> __( 'This is a standard text area.', $this->textdomain ),
+					'label'			=> __( 'A Text Block' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard text area.', $this->plugin_slug ),
 					'type'			=> 'textarea',
 					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text for this textarea', $this->textdomain )
+					'placeholder'	=> __( 'Placeholder text for this textarea', $this->plugin_slug )
 				),
 				array(
 					'id' 			=> 'single_checkbox',
-					'label'			=> __( 'An Option', $this->textdomain ),
-					'description'	=> __( 'A standard checkbox - if you save this option as checked then it will store the option as \'on\', otherwise it will be an empty string.', $this->textdomain ),
+					'label'			=> __( 'An Option', $this->plugin_slug ),
+					'description'	=> __( 'A standard checkbox - if you save this option as checked then it will store the option as \'on\', otherwise it will be an empty string.', $this->plugin_slug ),
 					'type'			=> 'checkbox',
 					'default'		=> 'on'
 				),
 				array(
 					'id' 			=> 'select_box',
-					'label'			=> __( 'A Select Box', $this->textdomain ),
-					'description'	=> __( 'A standard select box.', $this->textdomain ),
+					'label'			=> __( 'A Select Box', $this->plugin_slug ),
+					'description'	=> __( 'A standard select box.', $this->plugin_slug ),
 					'type'			=> 'select',
 					'options'		=> array( 'drupal' => 'Drupal', 'joomla' => 'Joomla', 'wordpress' => 'WordPress' ),
 					'default'		=> 'wordpress'
 				),
 				array(
 					'id' 			=> 'radio_buttons',
-					'label'			=> __( 'Some Options', $this->textdomain ),
-					'description'	=> __( 'A standard set of radio buttons.', $this->textdomain ),
+					'label'			=> __( 'Some Options', $this->plugin_slug ),
+					'description'	=> __( 'A standard set of radio buttons.', $this->plugin_slug ),
 					'type'			=> 'radio',
 					'options'		=> array( 'superman' => 'Superman', 'batman' => 'Batman', 'ironman' => 'Iron Man' ),
 					'default'		=> 'batman'
 				),
 				array(
 					'id' 			=> 'file_field',
-					'label'			=> __( 'Some File' , $this->textdomain ),
-					'description'	=> __( 'This is a standard file field.', $this->textdomain ),
+					'label'			=> __( 'Some File' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
 					'type'			=> 'file',
 					'default'		=> ''
 				),
 				array(
 					'id' 			=> 'file_field_2',
-					'label'			=> __( 'Some File 2' , $this->textdomain ),
-					'description'	=> __( 'This is a standard file field.', $this->textdomain ),
+					'label'			=> __( 'Some File 2' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
 					'type'			=> 'file',
 					'default'		=> ''
 				),
@@ -139,29 +137,29 @@ class Anti_AdBlock_Settings {
 		);
 
 		$settings['extra'] = array(
-			'title'					=> __( 'Extra', $this->textdomain ),
-			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', $this->textdomain ),
+			'title'					=> __( 'Extra', $this->plugin_slug ),
+			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'multiple_checkboxes',
-					'label'			=> __( 'Some Items', $this->textdomain ),
-					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->textdomain ),
+					'label'			=> __( 'Some Items', $this->plugin_slug ),
+					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
 					'type'			=> 'checkbox_multi',
 					'options'		=> array( 'square' => 'Square', 'circle' => 'Circle', 'rectangle' => 'Rectangle', 'triangle' => 'Triangle' ),
 					'default'		=> array( 'circle', 'triangle' )
 				),
 				array(
 					'id' 			=> 'number_field',
-					'label'			=> __( 'A Number' , $this->textdomain ),
-					'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', $this->textdomain ),
+					'label'			=> __( 'A Number' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', $this->plugin_slug ),
 					'type'			=> 'number',
 					'default'		=> '',
-					'placeholder'	=> __( '42', $this->textdomain )
+					'placeholder'	=> __( '42', $this->plugin_slug )
 				),
 				array(
 					'id' 			=> 'multi_select_box',
-					'label'			=> __( 'A Multi-Select Box', $this->textdomain ),
-					'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', $this->textdomain ),
+					'label'			=> __( 'A Multi-Select Box', $this->plugin_slug ),
+					'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', $this->plugin_slug ),
 					'type'			=> 'select_multi',
 					'options'		=> array( 'linux' => 'Linux', 'mac' => 'Mac', 'windows' => 'Windows' ),
 					'default'		=> array( 'linux' )
@@ -348,38 +346,46 @@ class Anti_AdBlock_Settings {
 
 		// Validate fields, eg. don't save options if the password field is empty
 		// if ( $data['password_field'] == '' ) {
-		// 	add_settings_error( $this->plugin_slug, 'no-password', __('A password is required.', $this->textdomain), 'error' );
+		// 	add_settings_error( $this->plugin_slug, 'no-password', __('A password is required.', $this->plugin_slug), 'error' );
 		// 	return false;
 		// }
-		echo "<pre>";
-		print_r($_FILES); exit;
+		// echo "<pre>";
+		// print_r($_FILES); exit;
 
-		$keys = array_keys($_FILES);
-		$i = 0;
-		
-		foreach ($_FILES as $image) {
 
-			// if a files was upload
-			if ($image['size']) {
-				// if it is an image
-				if (preg_match('/(jpg|jpeg|png|gif)$/', $image['type'])) {
-				   $override = array('test_form' => false);
-				   $file = wp_handle_upload($image, $override);
-				   
-				   $data[$keys[$i]] = $file['url'];
-				} else {
-				   $options = get_option('data');
-				   $data[$keys[$i]] = $options[$logo];
-				   wp_die('No image was uploaded.');
+		if(!empty($_FILES) && 1==2){
+
+			foreach($_FILES[$this->plugin_slug] as $something){
+
+			}
+
+			$keys = array_keys($_FILES);
+			$i = 0;
+			
+			foreach ($_FILES as $image) {
+
+				// if a files was upload
+				if ($image['size']) {
+					// if it is an image
+					if (preg_match('/(jpg|jpeg|png|gif)$/', $image['type'])) {
+					$override = array('test_form' => false);
+					$file = wp_handle_upload($image, $override);
+
+					$data[$keys[$i]] = $file['url'];
+					} else {
+					$options = get_option('data');
+					$data[$keys[$i]] = $options[$logo];
+					wp_die('No image was uploaded.');
+					}
 				}
+			
+				// else, retain the image that's already on file.
+				else {
+					$options = get_option('data');
+					$data[$keys[$i]] = $options[$keys[$i]];
+				}
+				$i++;
 			}
-		
-			// else, retain the image that's already on file.
-			else {
-				$options = get_option('data');
-				$data[$keys[$i]] = $options[$keys[$i]];
-			}
-			$i++;
 		}
 
 		return $data;
@@ -394,8 +400,8 @@ class Anti_AdBlock_Settings {
 		// If you don't need tabbed navigation just strip out everything between the <!-- Tab navigation --> tags.
 	?>
 	  <div class="wrap" id="<?php echo $this->plugin_slug; ?>">
-	  	<h2><?php _e('My Plugin Settings', $this->textdomain); ?></h2>
-	  	<p><?php _e('Some infos about my plugin.', $this->textdomain); ?></p>
+	  	<h2><?php _e('My Plugin Settings', $this->plugin_slug); ?></h2>
+	  	<p><?php _e('Some infos about my plugin.', $this->plugin_slug); ?></p>
 
 		<!-- Tab navigation starts -->
 		<h2 class="nav-tab-wrapper settings-tabs hide-if-no-js">
