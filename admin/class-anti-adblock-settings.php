@@ -349,20 +349,32 @@ class Anti_AdBlock_Settings {
 		// 	add_settings_error( $this->plugin_slug, 'no-password', __('A password is required.', $this->plugin_slug), 'error' );
 		// 	return false;
 		// }
+
 		// echo "<pre>";
 		// print_r($_FILES); exit;
+		
 
+		$files = array();
+		if(!empty($_FILES) && !empty($_FILES[$this->plugin_slug])){
+			if(isset($_FILES[$this->plugin_slug]) && !empty($_FILES[$this->plugin_slug])) {
+				foreach($_FILES[$this->plugin_slug]['name'] as $key => $fileName){
+					$files[$key] = array(
+						'name' => $_FILES[$this->plugin_slug]['name'][$key],
+						'type' => $_FILES[$this->plugin_slug]['type'][$key],
+						'tmp_name' => $_FILES[$this->plugin_slug]['tmp_name'][$key],
+						'error' => $_FILES[$this->plugin_slug]['error'][$key],
+						'size' => $_FILES[$this->plugin_slug]['size'][$key],
+					);
 
-		if(!empty($_FILES) && 1==2){
+				}
 
-			foreach($_FILES[$this->plugin_slug] as $something){
 
 			}
 
 			$keys = array_keys($_FILES);
 			$i = 0;
 			
-			foreach ($_FILES as $image) {
+			foreach ($files as $image) {
 
 				// if a files was upload
 				if ($image['size']) {
@@ -387,6 +399,8 @@ class Anti_AdBlock_Settings {
 				$i++;
 			}
 		}
+
+		var_dump($data); exit;
 
 		return $data;
 	}
