@@ -44,6 +44,15 @@ class Anti_AdBlock {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
+	 * @var      string    $plugin_slug    The string used to uniquely identify this plugin.
+	 */
+	protected $plugin_slug;
+
+	/**
+	 * The unique identifier of this plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
@@ -58,6 +67,15 @@ class Anti_AdBlock {
 	protected $version;
 
 	/**
+	 * The plugin settings
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 */
+	protected $plugin_settings;
+
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -67,8 +85,9 @@ class Anti_AdBlock {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		
-		$this->plugin_name = 'anti-adblock';
+
+		$this->plugin_name = 'Anti AdBlock';
+		$this->plugin_slug = 'anti-adblock';
 		$this->version = '1.0.0';
 		// $this->basename = dirname( dirname( plugin_basename( __FILE__ ) ) );
 
@@ -112,7 +131,10 @@ class Anti_AdBlock {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-anti-adblock-settings.php';
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-anti-adblock-admin.php';
+		
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -136,7 +158,7 @@ class Anti_AdBlock {
 	private function set_locale() {
 
 		$plugin_i18n = new Anti_AdBlock_i18n();
-		$plugin_i18n->set_domain( $this->get_plugin_name() );
+		$plugin_i18n->set_domain( $this->get_plugin_slug() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -151,16 +173,12 @@ class Anti_AdBlock {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Anti_AdBlock_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Anti_AdBlock_Admin( $this->get_plugin_slug(), $this->get_version() );
+		$plugin_settings = new Anti_AdBlock_Settings($this->get_plugin_name(), $this->get_plugin_slug(), __FILE__);
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
-		// $this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'add_settings_sections' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'add_settings_fields' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
-		$this->loader->add_action( 'plugin_action_links_' . $this->plugin_name . '/' . $this->plugin_name . '.php', $plugin_admin, 'admin_plugin_settings_link' );
+		$this->loader->add_action( 'plugin_action_links_' . $this->get_plugin_slug() . '/' . $this->get_plugin_slug() . '.php', $plugin_admin, 'admin_plugin_settings_link' );
 
 	}
 
@@ -173,7 +191,7 @@ class Anti_AdBlock {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Anti_AdBlock_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Anti_AdBlock_Public( $this->get_plugin_slug(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -189,6 +207,17 @@ class Anti_AdBlock {
 	 */
 	public function run() {
 		$this->loader->run();
+	}
+
+	/**
+	 * The slug of the plugin used to uniquely identify it within the context of
+	 * WordPress and to define internationalization functionality.
+	 *
+	 * @since     1.0.0
+	 * @return    string    The slug of the plugin.
+	 */
+	public function get_plugin_slug() {
+		return $this->plugin_slug;
 	}
 
 	/**
