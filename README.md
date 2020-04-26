@@ -13,7 +13,7 @@ Supported browsers and ad blocking extensions:
 
 ## Installation
 
-You can download plugin from Github, from [wordpress.org/plugins](https://wordpress.org/plugins/) or by wordpress admin panel
+You can download plugin from Github, from [wordpress.org/plugins](https://wordpress.org/plugins/) or by wordpress admin panel (Left sidebar menu -> Plugins -> Add new -> Search plugin form - type "Anti Adblock" -> Install -> Activate)
 
 ( Plugins -> Add New -> Search plugins form (type Anti AdBlock) -> Install Now)
 
