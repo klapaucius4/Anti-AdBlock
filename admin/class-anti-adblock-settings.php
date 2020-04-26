@@ -306,8 +306,9 @@ class Anti_AdBlock_Settings {
 			break;
 
 			case 'file':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" value="' . $data . '"/>' . "\n";
-				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" />';
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '_file" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" />' . "\n";
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" value="' . $data . '"  />' . "\n";
+				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" class="w-max-100" />';
 			break;
 
 		}
@@ -374,6 +375,7 @@ class Anti_AdBlock_Settings {
 
 			$i = 0;
 			$keys = array_keys($files);
+
 			foreach ($files as $image) {
 
 				// if a files was upload
