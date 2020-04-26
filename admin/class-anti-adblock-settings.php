@@ -307,6 +307,7 @@ class Anti_AdBlock_Settings {
 
 			case 'file':
 				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" value="' . $data . '"/>' . "\n";
+				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" />';
 			break;
 
 		}
@@ -371,36 +372,35 @@ class Anti_AdBlock_Settings {
 
 			}
 
-			$keys = array_keys($_FILES);
 			$i = 0;
-			
+			$keys = array_keys($files);
 			foreach ($files as $image) {
 
 				// if a files was upload
 				if ($image['size']) {
 					// if it is an image
 					if (preg_match('/(jpg|jpeg|png|gif)$/', $image['type'])) {
-					$override = array('test_form' => false);
-					$file = wp_handle_upload($image, $override);
+						$override = array('test_form' => false);
+						$file = wp_handle_upload($image, $override);
 
-					$data[$keys[$i]] = $file['url'];
+						$data[$keys[$i]] = $file['url'];
 					} else {
-					$options = get_option('data');
-					$data[$keys[$i]] = $options[$logo];
-					wp_die('No image was uploaded.');
+						$options = get_option('data');
+						$data[$keys[$i]] = $options[$logo];
+						wp_die('No image was uploaded.');
 					}
 				}
 			
 				// else, retain the image that's already on file.
-				else {
-					$options = get_option('data');
-					$data[$keys[$i]] = $options[$keys[$i]];
-				}
+				// else {
+				// 	$options = get_option('data');
+				// 	$data[$keys[$i]] = $options[$keys[$i]];
+				// }
 				$i++;
 			}
 		}
 
-		var_dump($data); exit;
+		// var_dump($data); exit;
 
 		return $data;
 	}
