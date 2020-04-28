@@ -60,8 +60,8 @@ class Anti_AdBlock_Settings {
 	 */
 	private function settings_fields() {
 
-		$settings['easy'] = array(
-			'title'					=> __( 'Standard', $this->plugin_slug ),
+		$settings['general'] = array(
+			'title'					=> __( 'General', $this->plugin_slug ),
 			'description'			=> __( 'These are fairly standard form input fields.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
