@@ -4,7 +4,7 @@
 This plugin shows your page's users how to turn off the blocking ad extensions from most popular web browsers. This is done through simple and short movies in webm format. This plugin has **25 different movies** for any browser and any extension.
 
 This plugin has instructional videos showing how to disable the following blocking extensions:
- - Adblock
+ - AdBlock
  - Adblock Plus (ABP)
  - uBlock
  - Ghostery
