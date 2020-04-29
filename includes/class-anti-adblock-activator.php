@@ -31,6 +31,8 @@ class Anti_AdBlock_Activator {
 	 */
 	public static function activate() {
 		// var_dump('test'); exit;
+
+		
 	}
 
 }
