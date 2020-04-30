@@ -62,7 +62,7 @@ class Anti_AdBlock_Settings {
 
 		$settings['general'] = array(
 			'title'					=> __( 'General', $this->plugin_slug ),
-			'description'			=> __( 'These are fairly standard form input fields.', $this->plugin_slug ),
+			'description'			=> __( 'General settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'plugin_enabled',
@@ -139,8 +139,8 @@ class Anti_AdBlock_Settings {
 		);
 
 		$settings['display'] = array(
-			'title'					=> __( 'Files', $this->plugin_slug ),
-			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', $this->plugin_slug ),
+			'title'					=> __( 'Display', $this->plugin_slug ),
+			'description'			=> __( 'Display settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'file_field',
@@ -161,7 +161,7 @@ class Anti_AdBlock_Settings {
 
 		$settings['files'] = array(
 			'title'					=> __( 'Files', $this->plugin_slug ),
-			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', $this->plugin_slug ),
+			'description'			=> __( 'Files settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'file_field',
