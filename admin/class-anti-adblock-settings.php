@@ -143,18 +143,12 @@ class Anti_AdBlock_Settings {
 			'description'			=> __( 'Display settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'file_field',
-					'label'			=> __( 'Some File' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
-					'type'			=> 'file',
-					'default'		=> ''
-				),
-				array(
-					'id' 			=> 'file_field_2',
-					'label'			=> __( 'Some File 2' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
-					'type'			=> 'file',
-					'default'		=> ''
+					'id' 			=> 'display_text',
+					'label'			=> __( 'Display text' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
+					'type'			=> 'text',
+					'default'		=> __( '', $this->plugin_slug ),
+					'placeholder'	=> __( '', $this->plugin_slug )
 				),
 			)
 		);
