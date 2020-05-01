@@ -162,15 +162,13 @@ class Anti_AdBlock_Settings {
 					'label'			=> __( 'Popup image' , $this->plugin_slug ),
 					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
 					'type'			=> 'file',
-					'default'		=> ''
 				),
-				array(
-					'id' 			=> 'file_field_2',
-					'label'			=> __( 'Some File 2' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
-					'type'			=> 'file',
-					'default'		=> ''
-				),
+				// array(
+				// 	'id' 			=> 'file_field_2',
+				// 	'label'			=> __( 'Some File 2' , $this->plugin_slug ),
+				// 	'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
+				// 	'type'			=> 'file',
+				// ),
 				// array(
 				// 	'id' 			=> 'multiple_checkboxes',
 				// 	'label'			=> __( 'Some Items', $this->plugin_slug ),
