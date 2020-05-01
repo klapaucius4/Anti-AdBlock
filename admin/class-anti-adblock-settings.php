@@ -158,8 +158,8 @@ class Anti_AdBlock_Settings {
 			'description'			=> __( 'Files settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'file_field',
-					'label'			=> __( 'Some File' , $this->plugin_slug ),
+					'id' 			=> 'popup_image',
+					'label'			=> __( 'Popup image' , $this->plugin_slug ),
 					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
 					'type'			=> 'file',
 					'default'		=> ''
@@ -337,9 +337,9 @@ class Anti_AdBlock_Settings {
 			break;
 
 			case 'file':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '_file" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" />' . "\n";
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" value="' . $data . '"  />' . "\n";
-				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" class="w-max-100" />';
+				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" class="w-max-100" />' . '<br />';
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '_file" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" />';
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" value="' . $data . '"  />';
 			break;
 
 		}

@@ -18,7 +18,8 @@
             </div>
         </div>
         <div class="image-section">
-            <img class="adbp-image" src="<?= $this->plugin_location; ?>public/img/sad-man.gif" alt="" />
+            <?php /*<img class="adbp-image" src="<?= $this->plugin_location; ?>public/img/sad-man.gif" alt="" />*/ ?>
+            <img class="adbp-image" src="<?= get_option('popup_image'); ?>" alt="" />
         </div>
     </div>
     <div id="adbp-tab-2" class="flex-section">
