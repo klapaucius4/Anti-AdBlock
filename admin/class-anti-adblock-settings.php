@@ -87,6 +87,13 @@ class Anti_AdBlock_Settings {
 					'default'		=> __('Your browser using extension to disable advertising on our website. Please disable it, if you use one of the following or other ad-blocker extension.', $this->plugin_slug),
 					'placeholder'	=> __( 'Type the popup content text...', $this->plugin_slug )
 				),
+				array(
+					'id' 			=> 'popup_image_enabled',
+					'label'			=> __( 'Popup  image / gif enabled?', $this->plugin_slug ),
+					'description'	=> __( 'Default it is a gif with a crying man. You can change this image in "Files" tab.', $this->plugin_slug ),
+					'type'			=> 'checkbox',
+					'default'		=> 1
+				),
 				// array(
 				// 	'id' 			=> 'password_field',
 				// 	'label'			=> __( 'A Password' , $this->plugin_slug ),
@@ -140,7 +147,7 @@ class Anti_AdBlock_Settings {
 
 		$settings['display'] = array(
 			'title'					=> __( 'Display', $this->plugin_slug ),
-			'description'			=> __( 'Display settings.', $this->plugin_slug ),
+			'description'			=> __( 'All options related to displaying popup on individual pages, to cookie support, etc.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'display_text',
@@ -155,12 +162,18 @@ class Anti_AdBlock_Settings {
 
 		$settings['files'] = array(
 			'title'					=> __( 'Files', $this->plugin_slug ),
-			'description'			=> __( 'Files settings.', $this->plugin_slug ),
+			'description'			=> __( 'All images / gifs / movies that you can change.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
 					'id' 			=> 'popup_image',
 					'label'			=> __( 'Popup image' , $this->plugin_slug ),
 					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'chrome_abp_movie',
+					'label'			=> __( 'Chrome anti adblock movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
 					'type'			=> 'file',
 				),
 				// array(
