@@ -65,30 +65,40 @@ class Anti_AdBlock_Settings {
 			'description'			=> __( 'General settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'plugin_enabled',
+					'id' 			=> 'general_plugin_enabled',
 					'label'			=> __( 'Plugin enabled', $this->plugin_slug ),
 					'description'	=> __( '', $this->plugin_slug ),
 					'type'			=> 'checkbox',
 					'default'		=> 0
 				),
 				array(
-					'id' 			=> 'popup_title',
+					'id' 			=> 'general_popup_title',
 					'label'			=> __( 'Popup title' , $this->plugin_slug ),
-					// 'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
 					'type'			=> 'text',
 					'default'		=> __( 'We detected Ad blocker extension!', $this->plugin_slug ),
 					'placeholder'	=> __( 'Type the popup title...', $this->plugin_slug )
 				),
 				array(
-					'id' 			=> 'popup_content',
+					'id' 			=> 'general_popup_content',
 					'label'			=> __( 'Popup content text' , $this->plugin_slug ),
-					// 'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
 					'type'			=> 'textarea',
 					'default'		=> __('Your browser using extension to disable advertising on our website. Please disable it, if you use one of the following or other ad-blocker extension.', $this->plugin_slug),
 					'placeholder'	=> __( 'Type the popup content text...', $this->plugin_slug )
 				),
 				array(
-					'id' 			=> 'popup_image_enabled',
+					'id' 			=> 'general_button_how_to_disable',
+					'label'			=> __( 'How to disable button text' , $this->plugin_slug ),
+					'type'			=> 'text',
+					'default'		=> __('How to disable adblock in', $this->plugin_slug),
+				),
+				array(
+					'id' 			=> 'general_button_reload_page',
+					'label'			=> __( 'Reolad page button text' , $this->plugin_slug ),
+					'type'			=> 'text',
+					'default'		=> __('I disabled ad blocker extension. Reload page.', $this->plugin_slug),
+				),
+				array(
+					'id' 			=> 'general_popup_image_enabled',
 					'label'			=> __( 'Popup  image / gif enabled?', $this->plugin_slug ),
 					'description'	=> __( 'Default it is a gif with a crying man. You can change this image in "Files" tab.', $this->plugin_slug ),
 					'type'			=> 'checkbox',
@@ -144,18 +154,40 @@ class Anti_AdBlock_Settings {
 				
 			)
 		);
-
+		
 		$settings['display'] = array(
 			'title'					=> __( 'Display', $this->plugin_slug ),
 			'description'			=> __( 'All options related to displaying popup on individual pages, to cookie support, etc.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'display_text',
-					'label'			=> __( 'Display text' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
-					'type'			=> 'text',
-					'default'		=> __( '', $this->plugin_slug ),
-					'placeholder'	=> __( '', $this->plugin_slug )
+					'id' 			=> 'display_places_enabled',
+					'label'			=> __( 'In which places should the plugin run? ', $this->plugin_slug ),
+					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
+					'type'			=> 'checkbox_multi',
+					'options'		=> array(
+						'all_pages' => 'Everywhetre',
+						'pages' => 'Pages'
+					),
+					'default'		=> array( 'circle', 'triangle' )
+				),
+				array(
+					'id' 			=> 'display_places_disabled',
+					'label'			=> __( 'In which places should the plugin run? ', $this->plugin_slug ),
+					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
+					'type'			=> 'checkbox_multi',
+					'options'		=> array(
+						'all_pages' => 'Everywhetre',
+						'pages' => 'Pages'
+					),
+					'default'		=> array( 'circle', 'triangle' )
+				),
+				array(
+					'id' 			=> 'display_after_seconds',
+					'label'			=> __( 'Display after x seconds' , $this->plugin_slug ),
+					'description'	=> __( 'Display the popup window afer x seconds. If value is 0, then popup opens immediately after page load.', $this->plugin_slug ),
+					'type'			=> 'number',
+					'default'		=> '30',
+					'placeholder'	=> __( 'x seconds...', $this->plugin_slug )
 				),
 			)
 		);
@@ -165,14 +197,44 @@ class Anti_AdBlock_Settings {
 			'description'			=> __( 'All images / gifs / movies that you can change.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'popup_image',
+					'id' 			=> 'files_popup_image',
 					'label'			=> __( 'Popup image' , $this->plugin_slug ),
 					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
 					'type'			=> 'file',
 				),
 				array(
-					'id' 			=> 'chrome_abp_movie',
-					'label'			=> __( 'Chrome anti adblock movie' , $this->plugin_slug ),
+					'id' 			=> 'files_chrome_adblock_movie',
+					'label'			=> __( 'Chrome AdBlock movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_abp_movie',
+					'label'			=> __( 'Chrome Adblock Plus movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_adguard_movie',
+					'label'			=> __( 'Chrome AdGuard movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_ghostery_movie',
+					'label'			=> __( 'Chrome Ghostery movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_nano_movie',
+					'label'			=> __( 'Chrome Nano movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_ublock_movie',
+					'label'			=> __( 'Chrome uBlock Origin movie' , $this->plugin_slug ),
 					'description'	=> __( '', $this->plugin_slug ),
 					'type'			=> 'file',
 				),
@@ -186,7 +248,7 @@ class Anti_AdBlock_Settings {
 				// 	'id' 			=> 'multiple_checkboxes',
 				// 	'label'			=> __( 'Some Items', $this->plugin_slug ),
 				// 	'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
-				// 	'type'			=> 'checkbox_multi',
+				// 	'type'			=> 'file',
 				// 	'options'		=> array( 'square' => 'Square', 'circle' => 'Circle', 'rectangle' => 'Rectangle', 'triangle' => 'Triangle' ),
 				// 	'default'		=> array( 'circle', 'triangle' )
 				// ),

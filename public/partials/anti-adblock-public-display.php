@@ -1,3 +1,4 @@
+<?php if($this->options['general_plugin_enabled']): ?>
 <!-- The Modal -->
 <div id="adbp" class="modal">
 
@@ -7,8 +8,8 @@
 
     <div id="adbp-tab-1" class="flex-section">
         <div class="adbp-text-section">
-            <h2><?= $this->options['popup_title']; ?></h2>
-            <p><?= $this->options['popup_content']; ?></p>
+            <h2><?= $this->options['general_popup_title']; ?></h2>
+            <p><?= $this->options['general_popup_content']; ?></p>
             <div class="adbp-flexbox w-100">
               <?php foreach(EXTENSION_LIST as $ext): ?>
               <div class="w-15">
@@ -19,12 +20,12 @@
         </div>
         <div class="image-section">
             <?php /*<img class="adbp-image" src="<?= $this->plugin_location; ?>public/img/sad-man.gif" alt="" />*/ ?>
-            <img class="adbp-image" src="<?= $this->options['popup_image']; ?>" alt="<?= $this->plugin_name; ?>" />
+            <img class="adbp-image" src="<?= $this->options['files_popup_image']; ?>" alt="<?= $this->plugin_name; ?>" />
         </div>
     </div>
     <div id="adbp-tab-2" class="flex-section">
         <div class="adbp-text-section">
-            <h2>How to disable adblock in <strong><?= $this->browser->getBrowser(); ?></strong></h2>
+            <h2><?= $this->options['general_button_how_to_disable']; ?> <strong><?= $this->browser->getBrowser(); ?></strong></h2>
         </div>
         <div class="adbp-flexbox">
             <?php foreach(EXTENSION_LIST as $ext): ?>
@@ -49,8 +50,8 @@
         <div class="bg-container"><?php require_once plugin_dir_path( __FILE__ ) . '../img/icons/'.$this->browser_slug.'.svg'; ?></div>
     </div>
     <div class="flex-section center mt-20">
-      <button id="adbp-how-to-disable-button" class="button button3">How to disable ad blocker plugin in <?= $this->browser->getBrowser(); ?>?</button>
-      <button id="adbp-reload-page-button" class="button button2">I disabled ad blocker extension. Reload page.</button>
+      <button id="adbp-how-to-disable-button" class="button button3"><?= $this->options['general_button_how_to_disable']; ?> <?= $this->browser->getBrowser(); ?>?</button>
+      <button id="adbp-reload-page-button" class="button button2"><?= $this->options['general_button_reload_page']; ?></button>
     </div>
     
 </div>
@@ -111,3 +112,4 @@
 
   
 </script>
+<?php endif;
