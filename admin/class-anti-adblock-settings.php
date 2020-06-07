@@ -74,7 +74,7 @@ class Anti_AdBlock_Settings {
 				array(
 					'id' 			=> 'popup_title',
 					'label'			=> __( 'Popup title' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
+					// 'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
 					'type'			=> 'text',
 					'default'		=> __( 'We detected Ad blocker extension!', $this->plugin_slug ),
 					'placeholder'	=> __( 'Type the popup title...', $this->plugin_slug )
@@ -82,7 +82,7 @@ class Anti_AdBlock_Settings {
 				array(
 					'id' 			=> 'popup_content',
 					'label'			=> __( 'Popup content text' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
+					// 'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
 					'type'			=> 'textarea',
 					'default'		=> __('Your browser using extension to disable advertising on our website. Please disable it, if you use one of the following or other ad-blocker extension.', $this->plugin_slug),
 					'placeholder'	=> __( 'Type the popup content text...', $this->plugin_slug )

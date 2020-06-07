@@ -7,8 +7,8 @@
 
     <div id="adbp-tab-1" class="flex-section">
         <div class="adbp-text-section">
-            <h2>We detected <strong>Ad blocker</strong> extension!</h2>
-            <p>Your browser using extension to disable advertising on our website. Please disable it, if you use one of the following or other ad-blocker extension.</p>
+            <h2><?= $this->options['popup_title']; ?></h2>
+            <p><?= $this->options['popup_content']; ?></p>
             <div class="adbp-flexbox w-100">
               <?php foreach(EXTENSION_LIST as $ext): ?>
               <div class="w-15">
