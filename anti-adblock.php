@@ -30,6 +30,14 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-anti-adblock.php';
+
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-anti-adblock-activator.php
@@ -51,11 +59,6 @@ function deactivate_anti_adblock() {
 register_activation_hook( __FILE__, 'activate_anti_adblock' );
 register_deactivation_hook( __FILE__, 'deactivate_anti_adblock' );
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-anti-adblock.php';
 
 /**
  * Begins execution of the plugin.

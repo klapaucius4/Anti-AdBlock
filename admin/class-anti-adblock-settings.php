@@ -62,108 +62,212 @@ class Anti_AdBlock_Settings {
 
 		$settings['general'] = array(
 			'title'					=> __( 'General', $this->plugin_slug ),
-			'description'			=> __( 'These are fairly standard form input fields.', $this->plugin_slug ),
+			'description'			=> __( 'General settings.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'text_field',
-					'label'			=> __( 'Some Text' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard text field.', $this->plugin_slug ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
-				),
-				array(
-					'id' 			=> 'password_field',
-					'label'			=> __( 'A Password' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard password field.', $this->plugin_slug ),
-					'type'			=> 'password',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
-				),
-				array(
-					'id' 			=> 'secret_text_field',
-					'label'			=> __( 'Some Secret Text' , $this->plugin_slug ),
-					'description'	=> __( 'This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved.', $this->plugin_slug ),
-					'type'			=> 'text_secret',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
-				),
-				array(
-					'id' 			=> 'text_block',
-					'label'			=> __( 'A Text Block' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard text area.', $this->plugin_slug ),
-					'type'			=> 'textarea',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text for this textarea', $this->plugin_slug )
-				),
-				array(
-					'id' 			=> 'single_checkbox',
-					'label'			=> __( 'An Option', $this->plugin_slug ),
-					'description'	=> __( 'A standard checkbox - if you save this option as checked then it will store the option as \'on\', otherwise it will be an empty string.', $this->plugin_slug ),
+					'id' 			=> 'general_plugin_enabled',
+					'label'			=> __( 'Plugin enabled', $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
 					'type'			=> 'checkbox',
-					'default'		=> 'on'
+					'default'		=> 0
 				),
 				array(
-					'id' 			=> 'select_box',
-					'label'			=> __( 'A Select Box', $this->plugin_slug ),
-					'description'	=> __( 'A standard select box.', $this->plugin_slug ),
-					'type'			=> 'select',
-					'options'		=> array( 'drupal' => 'Drupal', 'joomla' => 'Joomla', 'wordpress' => 'WordPress' ),
-					'default'		=> 'wordpress'
+					'id' 			=> 'general_popup_title',
+					'label'			=> __( 'Popup title' , $this->plugin_slug ),
+					'type'			=> 'text',
+					'default'		=> __( 'We detected Ad blocker extension!', $this->plugin_slug ),
+					'placeholder'	=> __( 'Type the popup title...', $this->plugin_slug )
 				),
 				array(
-					'id' 			=> 'radio_buttons',
-					'label'			=> __( 'Some Options', $this->plugin_slug ),
-					'description'	=> __( 'A standard set of radio buttons.', $this->plugin_slug ),
-					'type'			=> 'radio',
-					'options'		=> array( 'superman' => 'Superman', 'batman' => 'Batman', 'ironman' => 'Iron Man' ),
-					'default'		=> 'batman'
+					'id' 			=> 'general_popup_content',
+					'label'			=> __( 'Popup content text' , $this->plugin_slug ),
+					'type'			=> 'textarea',
+					'default'		=> __('Your browser using extension to disable advertising on our website. Please disable it, if you use one of the following or other ad-blocker extension.', $this->plugin_slug),
+					'placeholder'	=> __( 'Type the popup content text...', $this->plugin_slug )
 				),
 				array(
-					'id' 			=> 'file_field',
-					'label'			=> __( 'Some File' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
-					'type'			=> 'file',
-					'default'		=> ''
+					'id' 			=> 'general_button_how_to_disable',
+					'label'			=> __( 'How to disable button text' , $this->plugin_slug ),
+					'type'			=> 'text',
+					'default'		=> __('How to disable adblock in', $this->plugin_slug),
 				),
 				array(
-					'id' 			=> 'file_field_2',
-					'label'			=> __( 'Some File 2' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
-					'type'			=> 'file',
-					'default'		=> ''
+					'id' 			=> 'general_button_reload_page',
+					'label'			=> __( 'Reolad page button text' , $this->plugin_slug ),
+					'type'			=> 'text',
+					'default'		=> __('I disabled ad blocker extension. Reload page.', $this->plugin_slug),
+				),
+				array(
+					'id' 			=> 'general_popup_image_enabled',
+					'label'			=> __( 'Popup  image / gif enabled?', $this->plugin_slug ),
+					'description'	=> __( 'Default it is a gif with a crying man. You can change this image in "Files" tab.', $this->plugin_slug ),
+					'type'			=> 'checkbox',
+					'default'		=> 1
+				),
+				// array(
+				// 	'id' 			=> 'password_field',
+				// 	'label'			=> __( 'A Password' , $this->plugin_slug ),
+				// 	'description'	=> __( 'This is a standard password field.', $this->plugin_slug ),
+				// 	'type'			=> 'password',
+				// 	'default'		=> '',
+				// 	'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
+				// ),
+				// array(
+				// 	'id' 			=> 'secret_text_field',
+				// 	'label'			=> __( 'Some Secret Text' , $this->plugin_slug ),
+				// 	'description'	=> __( 'This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved.', $this->plugin_slug ),
+				// 	'type'			=> 'text_secret',
+				// 	'default'		=> '',
+				// 	'placeholder'	=> __( 'Placeholder text', $this->plugin_slug )
+				// ),
+				// array(
+				// 	'id' 			=> 'text_block',
+				// 	'label'			=> __( 'A Text Block' , $this->plugin_slug ),
+				// 	'description'	=> __( 'This is a standard text area.', $this->plugin_slug ),
+				// 	'type'			=> 'textarea',
+				// 	'default'		=> '',
+				// 	'placeholder'	=> __( 'Placeholder text for this textarea', $this->plugin_slug )
+				// ),
+				// array(
+				// 	'id' 			=> 'single_checkbox',
+				// 	'label'			=> __( 'An Option', $this->plugin_slug ),
+				// 	'description'	=> __( 'A standard checkbox - if you save this option as checked then it will store the option as \'on\', otherwise it will be an empty string.', $this->plugin_slug ),
+				// 	'type'			=> 'checkbox',
+				// 	'default'		=> 'on'
+				// ),
+				// array(
+				// 	'id' 			=> 'select_box',
+				// 	'label'			=> __( 'A Select Box', $this->plugin_slug ),
+				// 	'description'	=> __( 'A standard select box.', $this->plugin_slug ),
+				// 	'type'			=> 'select',
+				// 	'options'		=> array( 'drupal' => 'Drupal', 'joomla' => 'Joomla', 'wordpress' => 'WordPress' ),
+				// 	'default'		=> 'wordpress'
+				// ),
+				// array(
+				// 	'id' 			=> 'radio_buttons',
+				// 	'label'			=> __( 'Some Options', $this->plugin_slug ),
+				// 	'description'	=> __( 'A standard set of radio buttons.', $this->plugin_slug ),
+				// 	'type'			=> 'radio',
+				// 	'options'		=> array( 'superman' => 'Superman', 'batman' => 'Batman', 'ironman' => 'Iron Man' ),
+				// 	'default'		=> 'batman'
+				// ),
+				
+			)
+		);
+		
+		$settings['display'] = array(
+			'title'					=> __( 'Display', $this->plugin_slug ),
+			'description'			=> __( 'All options related to displaying popup on individual pages, to cookie support, etc.', $this->plugin_slug ),
+			'fields'				=> array(
+				array(
+					'id' 			=> 'display_places_enabled',
+					'label'			=> __( 'In which places should the plugin run? ', $this->plugin_slug ),
+					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
+					'type'			=> 'checkbox_multi',
+					'options'		=> array(
+						'all_pages' => 'Everywhetre',
+						'pages' => 'Pages'
+					),
+					'default'		=> array( 'circle', 'triangle' )
+				),
+				array(
+					'id' 			=> 'display_places_disabled',
+					'label'			=> __( 'In which places should the plugin run? ', $this->plugin_slug ),
+					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
+					'type'			=> 'checkbox_multi',
+					'options'		=> array(
+						'all_pages' => 'Everywhetre',
+						'pages' => 'Pages'
+					),
+					'default'		=> array( 'circle', 'triangle' )
+				),
+				array(
+					'id' 			=> 'display_after_seconds',
+					'label'			=> __( 'Display after x seconds' , $this->plugin_slug ),
+					'description'	=> __( 'Display the popup window afer x seconds. If value is 0, then popup opens immediately after page load.', $this->plugin_slug ),
+					'type'			=> 'number',
+					'default'		=> '30',
+					'placeholder'	=> __( 'x seconds...', $this->plugin_slug )
 				),
 			)
 		);
 
-		$settings['extra'] = array(
-			'title'					=> __( 'Extra', $this->plugin_slug ),
-			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', $this->plugin_slug ),
+		$settings['files'] = array(
+			'title'					=> __( 'Files', $this->plugin_slug ),
+			'description'			=> __( 'All images / gifs / movies that you can change.', $this->plugin_slug ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'multiple_checkboxes',
-					'label'			=> __( 'Some Items', $this->plugin_slug ),
-					'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
-					'type'			=> 'checkbox_multi',
-					'options'		=> array( 'square' => 'Square', 'circle' => 'Circle', 'rectangle' => 'Rectangle', 'triangle' => 'Triangle' ),
-					'default'		=> array( 'circle', 'triangle' )
+					'id' 			=> 'files_popup_image',
+					'label'			=> __( 'Popup image' , $this->plugin_slug ),
+					'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
+					'type'			=> 'file',
 				),
 				array(
-					'id' 			=> 'number_field',
-					'label'			=> __( 'A Number' , $this->plugin_slug ),
-					'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', $this->plugin_slug ),
-					'type'			=> 'number',
-					'default'		=> '',
-					'placeholder'	=> __( '42', $this->plugin_slug )
+					'id' 			=> 'files_chrome_adblock_movie',
+					'label'			=> __( 'Chrome AdBlock movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
 				),
 				array(
-					'id' 			=> 'multi_select_box',
-					'label'			=> __( 'A Multi-Select Box', $this->plugin_slug ),
-					'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', $this->plugin_slug ),
-					'type'			=> 'select_multi',
-					'options'		=> array( 'linux' => 'Linux', 'mac' => 'Mac', 'windows' => 'Windows' ),
-					'default'		=> array( 'linux' )
-				)
+					'id' 			=> 'files_chrome_abp_movie',
+					'label'			=> __( 'Chrome Adblock Plus movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_adguard_movie',
+					'label'			=> __( 'Chrome AdGuard movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_ghostery_movie',
+					'label'			=> __( 'Chrome Ghostery movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_nano_movie',
+					'label'			=> __( 'Chrome Nano movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				array(
+					'id' 			=> 'files_chrome_ublock_movie',
+					'label'			=> __( 'Chrome uBlock Origin movie' , $this->plugin_slug ),
+					'description'	=> __( '', $this->plugin_slug ),
+					'type'			=> 'file',
+				),
+				// array(
+				// 	'id' 			=> 'file_field_2',
+				// 	'label'			=> __( 'Some File 2' , $this->plugin_slug ),
+				// 	'description'	=> __( 'This is a standard file field.', $this->plugin_slug ),
+				// 	'type'			=> 'file',
+				// ),
+				// array(
+				// 	'id' 			=> 'multiple_checkboxes',
+				// 	'label'			=> __( 'Some Items', $this->plugin_slug ),
+				// 	'description'	=> __( 'You can select multiple items and they will be stored as an array.', $this->plugin_slug ),
+				// 	'type'			=> 'file',
+				// 	'options'		=> array( 'square' => 'Square', 'circle' => 'Circle', 'rectangle' => 'Rectangle', 'triangle' => 'Triangle' ),
+				// 	'default'		=> array( 'circle', 'triangle' )
+				// ),
+				// array(
+				// 	'id' 			=> 'number_field',
+				// 	'label'			=> __( 'A Number' , $this->plugin_slug ),
+				// 	'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', $this->plugin_slug ),
+				// 	'type'			=> 'number',
+				// 	'default'		=> '',
+				// 	'placeholder'	=> __( '42', $this->plugin_slug )
+				// ),
+				// array(
+				// 	'id' 			=> 'multi_select_box',
+				// 	'label'			=> __( 'A Multi-Select Box', $this->plugin_slug ),
+				// 	'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', $this->plugin_slug ),
+				// 	'type'			=> 'select_multi',
+				// 	'options'		=> array( 'linux' => 'Linux', 'mac' => 'Mac', 'windows' => 'Windows' ),
+				// 	'default'		=> array( 'linux' )
+				// )
 			)
 		);
 
@@ -306,9 +410,9 @@ class Anti_AdBlock_Settings {
 			break;
 
 			case 'file':
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '_file" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" />' . "\n";
-				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" value="' . $data . '"  />' . "\n";
-				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" class="w-max-100" />';
+				$html .= '<img src="'.$data.'" alt="'.$field['id'].'" class="w-max-100" />' . '<br />';
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '_file" type="' . $field['type'] . '" name="' . esc_attr( $option_name ) . '" />';
+				$html .= '<input id="' . esc_attr( $field['id'] ) . '" type="hidden" name="' . esc_attr( $option_name ) . '" value="' . $data . '"  />';
 			break;
 
 		}

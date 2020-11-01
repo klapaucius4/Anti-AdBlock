@@ -45,19 +45,28 @@ class Anti_AdBlock_Public {
 
 	private $plugin_name;
 
+	private $plugin_slug;
+
 	private $version;
 
 	public $plugin_location;
 
 	public $browser;
 	public $browser_slug;
+
+	private $options;
 	
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $plugin_slug, $version ) {
 
 		$this->plugin_name = $plugin_name;
+
+		$this->plugin_slug = $plugin_slug;
+		
 		$this->version = $version;
 
 		$this->plugin_location = plugin_dir_url(dirname(__FILE__));
+
+		$this->options = get_option($this->plugin_slug);
 
 		$this->init_browser();
 	}
@@ -81,7 +90,7 @@ class Anti_AdBlock_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/adbp.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_slug, plugin_dir_url( __FILE__ ) . 'css/adbp.css', array(), $this->version, 'all' );
 
 	}
 

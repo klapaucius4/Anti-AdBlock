@@ -30,7 +30,8 @@ class Anti_AdBlock_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		// var_dump('test'); exit;
+		$plugin = new Anti_AdBlock();
+		
 	}
 
 }
