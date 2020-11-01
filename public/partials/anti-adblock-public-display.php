@@ -19,7 +19,6 @@
             </div>
         </div>
         <div class="image-section">
-            <?php /*<img class="adbp-image" src="<?= $this->plugin_location; ?>public/img/sad-man.gif" alt="" />*/ ?>
             <img class="adbp-image" src="<?= $this->options['files_popup_image']; ?>" alt="<?= $this->plugin_name; ?>" />
         </div>
     </div>

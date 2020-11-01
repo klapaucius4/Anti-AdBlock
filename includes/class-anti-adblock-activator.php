@@ -31,6 +31,7 @@ class Anti_AdBlock_Activator {
 	 */
 	public static function activate() {
 		$plugin = new Anti_AdBlock();
+
 		
 	}
 
